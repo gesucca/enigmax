@@ -64,11 +64,13 @@
 	},
 	"expanded_folders":
 	[
-		"/X/PC_SYNC/PC_SYNC/SS!dev/EnigMax/web/public_html",
-		"/X/PC_SYNC/PC_SYNC/SS!dev/EnigMax/web/public_html/js"
+		"/media/ssdev/SS!DEV_DISK_1/w7_PROG/ws/SS!DEV_workspace/GIT/enigmax/test",
+		"/media/ssdev/SS!DEV_DISK_1/w7_PROG/ws/SS!DEV_workspace/GIT/enigmax/public_html"
 	],
 	"file_history":
 	[
+		"/media/ssdev/SS!DEV_DISK_1/w7_PROG/ws/SS!DEV_workspace/GIT/enigmax/public_html/enigMax.css",
+		"/media/ssdev/SS!DEV_DISK_1/w7_PROG/ws/SS!DEV_workspace/GIT/enigmax/public_html/index.html",
 		"/X/PC_SYNC/PC_SYNC/SS!dev/EnigMax/web/public_html/index.html",
 		"/X/PC_SYNC/PC_SYNC/SS!dev/EnigMax/web/test/test.html",
 		"/X/PC_SYNC/PC_SYNC/SS!dev/EnigMax/web/enigmax",
@@ -119,7 +121,7 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 0,
 			"sheets":
 			[
 				{
@@ -148,7 +150,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
@@ -164,8 +166,8 @@
 						"selection":
 						[
 							[
-								0,
-								0
+								367,
+								367
 							]
 						],
 						"settings":
@@ -176,7 +178,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 1,
 					"type": "text"
 				}
 			]

@@ -37,14 +37,11 @@ div#nojs-msg{
 .background {
 	z-index: -1;
 
-	left: -8px;
-	top:-8px;
-	bottom:-8px;
-	right: -8px;
-	position: fixed;
-	min-width: 100%;
-	min-height: 100%;
-	
+	left: -6px;
+	top:-6px;
+	bottom:-6px;
+	right: -6px;
+	position: fixed;	
 
 	-webkit-filter: blur(4px);
 	-moz-filter: blur(4px);
@@ -106,7 +103,7 @@ div#pedice_txt {
 
 	width: 50%;
 	min-width: 720px;
-	min-height: 300px;
+	min-height: 310px;
 	padding: 40px;
 
 	background: url(img/box.jpg);
