@@ -1,0 +1,157 @@
+/*I know, I suck at CSS.*/
+/*I hate the frontend with all the passion an human being can bear, but I had to overcome such an idiosyncrasy for my own sake. */
+/*If you know better, well, tell me and I'll try to improve*/
+/*BUT I WILL STILL BE HATING FRONTEND*/
+/*Simone, SS!dev*/
+
+div#nojs-msg{
+	text-align: center;
+	font-family: Courier, sans-serif;
+	font-size: 36px;
+	font-weight: bold;
+	color: red;
+}
+
+.lang-button {
+	padding: 5px;
+	background-color: #b3b3b3;
+	border: 1px solid black;
+	border-radius: 5px;
+	box-shadow: 0 5px #1a1a1a;
+
+	-webkit-transition-duration: 0.1s; /* Safari */
+	transition-duration: 0.1s;
+}
+
+.lang-button:hover {
+	background-color: #4CAF50; /* Green */
+	color: white;
+}
+
+.lang-button:active {
+	background-color: #3e8e41;
+	box-shadow: 0 5px #666;
+	transform: translateY(4px);
+}
+
+.background {
+	z-index: -1;
+
+	left: -8px;
+	top:-8px;
+	bottom:-8px;
+	right: -8px;
+	position: fixed;
+	min-width: 100%;
+	min-height: 100%;
+	
+
+	-webkit-filter: blur(4px);
+	-moz-filter: blur(4px);
+	-o-filter: blur(4px);
+	-ms-filter: blur(4px);
+	filter: blur(4px);
+}
+
+.text {
+	z-index: 1;
+	display: table; margin: 0 auto;
+	position: relative;
+}
+
+.text_bkg {
+	z-index: -1;
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	bottom: 0px;
+	left: 0px;
+
+	background: black;
+
+	-webkit-filter: blur(9px);
+	-moz-filter: blur(9px);
+	-o-filter: blur(9px);
+	-ms-filter: blur(9px);
+	filter: blur(9px);
+}
+
+div#text_txt {
+	text-align: center;
+	font-family: Courier, sans-serif;
+	font-size: 44px;
+	font-weight: bold;
+	color: green;
+}
+
+div#intestation_txt {
+	text-align: center;
+	font-family: Courier, sans-serif;
+	font-size: 16px;
+	color: green;
+}
+
+div#pedice_txt {
+	text-align: center;
+	font-family: Courier, sans-serif;
+	font-size: 12px;
+	color: green;
+}
+
+.content {
+	z-index: 1;
+	margin: auto;
+	border: 5px solid green;
+	border-radius: 25px;
+
+	width: 50%;
+	min-width: 720px;
+	min-height: 300px;
+	padding: 40px;
+
+	background: url(img/box.jpg);
+	background-position: left top;
+}
+
+.usn_pwd_date {
+	z-index: 1;
+	margin: auto;
+	border: 2px solid gray;
+	border-radius: 5px;
+
+	width: 60%;
+	min-width: 150px;
+	padding: 15px;
+
+	background: url(img/inn_box.jpg);
+	background-position: top;
+}
+
+.expiration_form {
+	float: right;
+
+	margin: auto;
+	border: 1px dotted;
+	border-radius: 3px;
+	background-color:black;
+
+	font-size: 12px;
+	color: lightgrey;
+
+	text-align: center;
+}
+
+textarea#clearText,  textarea#cryptText {
+	border: 2px solid #cccccc;
+	padding: 3px;
+	resize: none;
+
+	font-family: Courier, sans-serif;
+	font-size: 15px;
+	font-weight: bold;
+
+	background-image: url(img/input.jpg);
+	background-position: bottom right;
+
+	box-shadow: 1px 1px 1px #555 inset;
+}
