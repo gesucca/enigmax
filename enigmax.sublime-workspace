@@ -11,16 +11,7 @@
 			"file": "public_html/js/main.js",
 			"settings":
 			{
-				"buffer_size": 816,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "public_html/js/fun_hasher.js",
-			"settings":
-			{
-				"buffer_size": 410,
+				"buffer_size": 905,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -69,6 +60,8 @@
 	],
 	"file_history":
 	[
+		"/Z/projects/enigmax/enigmax",
+		"/Z/projects/enigmax/public_html/js/fun_hasher.js",
 		"/Z/projects/enigmax/test/unit/totalTest.js"
 	],
 	"find":
@@ -105,7 +98,7 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 0,
 			"sheets":
 			[
 				{
@@ -114,49 +107,21 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 816,
+						"buffer_size": 905,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								816,
-								816
+								172,
+								172
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
 							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 55.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "public_html/js/fun_hasher.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 410,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								410,
-								410
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
