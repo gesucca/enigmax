@@ -7,10 +7,12 @@ function crypt(msg, usn, pwd, exp) {
 	var d = new ToMap(new LastMap().get());
 
 	while (!s.isEnd()){
-		var temp = c.convert(s.getSlice()); //temp is an int!
+		var slice = s.getSlice();
+		var temp = c.convert(slice); //temp is an int!
 
 		// do crypt stuff
-		temp += hasher(usn, pwd);
+		if (temp!=0)
+			temp -= hasher(usn, pwd, temp);
 
 		b.append(d.convert(temp));
 	}
@@ -27,10 +29,11 @@ function decrypt(msg, usn, pwd, exp) {
 	var d = new ToMap(new FirstMap().getReverse());
 
 	while (!s.isEnd()){
-		var temp = c.convert(s.getSlice());
+		var slice = s.getSlice();
+		var temp = c.convert(slice);
 
 		//decrypt stuff
-		temp -= hasher(usn, pwd);
+		temp += hasher(usn, pwd, temp);
 
 		b.append(d.convert(temp));
 	}

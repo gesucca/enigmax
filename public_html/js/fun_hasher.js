@@ -9,7 +9,7 @@ String.prototype.hashCode = function() {
     return hash;
 };
 
-function hasher(usn, pwd) {
-	//to do: improve!
-	return usn.hashCode() % 5;
+function hasher(usn, pwd, temp) {
+	var theHash = usn.hashCode() + pwd.hashCode();
+	return Math.abs(theHash) % 9991;
 }
