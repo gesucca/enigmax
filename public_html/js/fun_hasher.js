@@ -1,3 +1,4 @@
+//thanks SO
 String.prototype.hashCode = function() {
 	var hash = 0, i, chr, len;
 	if (this.length === 0) return hash;
@@ -9,7 +10,7 @@ String.prototype.hashCode = function() {
     return hash;
 };
 
-function hasher(usn, pwd, temp) {
-	var theHash = usn.hashCode() + pwd.hashCode();
-	return Math.abs(theHash) % 9991;
+function getMagicNumber(usn, pwd) {
+	var theMagicNumber = usn.hashCode() + pwd.hashCode();
+	return Math.abs(theMagicNumber) % 9991;
 }

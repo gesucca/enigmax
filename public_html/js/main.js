@@ -12,11 +12,11 @@ function crypt(msg, usn, pwd, exp) {
 
 		// do crypt stuff
 		if (temp!=0)
-			temp -= hasher(usn, pwd, temp);
+			temp -= getMagicNumber(usn, pwd);
 
 		b.append(d.convert(temp));
 	}
-
+	//regex magic to get rid of double spaces
 	return b.get().replace(/\s\s+/g, ' ');
 }
 
@@ -33,10 +33,11 @@ function decrypt(msg, usn, pwd, exp) {
 		var temp = c.convert(slice);
 
 		//decrypt stuff
-		temp += hasher(usn, pwd, temp);
+		temp += getMagicNumber(usn, pwd);
 
 		b.append(d.convert(temp));
 	}
 
+	//regex magic to get rid of double spaces
 	return b.get().replace(/\s\s+/g, ' ');
 }
