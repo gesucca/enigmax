@@ -1,5 +1,5 @@
 function cryptButton() {
-	var m = new MsgChecker(getClearMsg(), /^[A-Z0-9'?!,.:;\n ]*$/, true);
+	var m = new MsgChecker(getClearMsg(), /^[A-Z0-9'?!,.:\n ]*$/, true);
 	if (!checkFor(m))
 		return;
 

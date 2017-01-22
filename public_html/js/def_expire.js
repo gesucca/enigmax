@@ -8,16 +8,15 @@ function expirator(time, msg){
 
 var ExpChecker = function(msg) {
 
-	var needsExpCheck = function (){
+	function needsExpCheck(){
 		if (msg.indexOf(';') == 0)
-			return true;
+		return true;
 		else 
 			return false;
 	}
 
-	var isExpired = function () {
+	function isExpired() {
 		//this is a mess, try to write it a little better
-		//also... I am modifying msg as I am checking other things, god that's bad
 		var index1, index2;
 
 		index1 = msg.indexOf(';');
@@ -39,6 +38,12 @@ var ExpChecker = function(msg) {
 			return false;
 	}
 
+	/*function returnSlicedMsg() {
+		msg = msg.substring(msg.indexOf(';')+1, msg.length);
+		msg = msg.substring(msg.indexOf(';')+1, msg.length);
+		msg = msg.substring(msg.indexOf(';')+1, msg.length);
+	}*/
+
 	this.getMsgExpChecked = function() {
 
 		//again, this is awful, I am modifying things while I am checking them...
@@ -47,8 +52,13 @@ var ExpChecker = function(msg) {
 		if (!needsExpCheck())
 			return msg;
 
+		// console.log('exp'+needsExpCheck());
+
 		if (isExpired())
 			return ';';
+
+		// console.log('exp'+isExpired());
+		// console.log('exp'+msg);
 
 		return msg;
 	}

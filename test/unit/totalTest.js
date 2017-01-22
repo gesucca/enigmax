@@ -1,7 +1,9 @@
 //for random tests
+// these two can be refactored...
+// shit, all these tests sucks so bad
 function makeRandString() {
     var text = "";
-    var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.,:;!?";
+    var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.,:!?";
 
     for( var i=0; i < 79; i++ )
         text += possible.charAt(Math.floor(Math.random() * possible.length));
@@ -11,7 +13,7 @@ function makeRandString() {
 
 function makeRandUSNPWD() {
     var text = "";
-    var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.,:;!?";
+    var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.,:!?";
 
     for( var i=0; i < 8; i++ )
         text += possible.charAt(Math.floor(Math.random() * possible.length));
@@ -142,7 +144,22 @@ QUnit.test("random 3", function (assert) {
 	assert.ok(ok==0, "that's ok!");
 });
 
-QUnit.test("With expiration", function (assert) {
+QUnit.test("With expiration 1", function (assert) {
+	var msg = makeRandString();
+	msg = msg.toUpperCase();
+	var usn = makeRandUSNPWD();
+	var pwd = makeRandUSNPWD()+makeRandUSNPWD();
+	var exp = 5;
+
+	var result = crypt(msg, usn, pwd, exp);
+	result = decrypt(result, usn, pwd, exp);
+
+	var ok = result.indexOf(msg);
+
+	assert.ok(ok==0, "that's ok! even with the pesky expiration");
+});
+
+QUnit.test("With expiration 2", function (assert) {
 	var msg = makeRandString();
 	msg = msg.toUpperCase();
 	var usn = makeRandUSNPWD();

@@ -54,9 +54,11 @@ function decrypt(msg, usn, pwd, exp) {
 	msg = e.getMsgExpChecked(b.get());
 
 	//shit, even this sucks, but wathever for now
-	if (b.get()==';')
-		return 'THE MESSAGE HAS EXPIRED! IT CANNOT BE DECIPHERED ANYMORE.'
+	if (msg==';')
+	return 'THE MESSAGE HAS EXPIRED! IT CANNOT BE DECIPHERED ANYMORE.'
+
+		// console.log(msg);
 
 	//regex magic to get rid of double spaces
-	return b.get().replace(/\s\s+/g, ' ');
+	return msg.replace(/\s\s+/g, ' ');
 }
