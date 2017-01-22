@@ -27,7 +27,7 @@ QUnit.test("1", function (assert) {
 	msg = msg.toUpperCase();
 	var usn = 'ProvaUsn1';
 	var pwd = 'thePassword';
-	var exp = null;
+	var exp = 0;
 
 	var result = crypt(msg, usn, pwd, exp);
 	result = decrypt(result, usn, pwd, exp);
@@ -42,7 +42,7 @@ QUnit.test("2", function (assert) {
 	msg = msg.toUpperCase();
 	var usn = 'poRRva33!';
 	var pwd = 'hheRRe&6';
-	var exp = null;
+	var exp = 0;
 
 	var result = crypt(msg, usn, pwd, exp);
 	result = decrypt(result, usn, pwd, exp);
@@ -57,7 +57,7 @@ QUnit.test("3", function (assert) {
 	msg = msg.toUpperCase();
 	var usn = 'po00==444r';
 	var pwd = 'poppppreeeeeeeeeee';
-	var exp = null;
+	var exp = 0;
 
 	var result = crypt(msg, usn, pwd, exp);
 	result = decrypt(result, usn, pwd, exp);
@@ -72,7 +72,7 @@ QUnit.test("4", function (assert) {
 	msg = msg.toUpperCase();
 	var usn = 'èèp99iiiiuuiaaaaaaaaaaau';
 	var pwd = 'nulllll';
-	var exp = null;
+	var exp = 0;
 
 	var result = crypt(msg, usn, pwd, exp);
 	result = decrypt(result, usn, pwd, exp);
@@ -87,7 +87,7 @@ QUnit.test("5", function (assert) {
 	msg = msg.toUpperCase();
 	var usn = 'pplllllllllYYYY';
 	var pwd = 'TGRHHHRttt';
-	var exp = null;
+	var exp = 0;
 
 	var result = crypt(msg, usn, pwd, exp);
 	result = decrypt(result, usn, pwd, exp);
@@ -102,7 +102,7 @@ QUnit.test("random 1", function (assert) {
 	msg = msg.toUpperCase();
 	var usn = makeRandUSNPWD();
 	var pwd = makeRandUSNPWD();
-	var exp = null;
+	var exp = 0;
 
 	var result = crypt(msg, usn, pwd, exp);
 	result = decrypt(result, usn, pwd, exp);
@@ -117,7 +117,7 @@ QUnit.test("random 2", function (assert) {
 	msg = msg.toUpperCase();
 	var usn = makeRandUSNPWD()+makeRandUSNPWD();
 	var pwd = makeRandUSNPWD();
-	var exp = null;
+	var exp = 0;
 
 	var result = crypt(msg, usn, pwd, exp);
 	result = decrypt(result, usn, pwd, exp);
@@ -132,7 +132,7 @@ QUnit.test("random 3", function (assert) {
 	msg = msg.toUpperCase();
 	var usn = makeRandUSNPWD();
 	var pwd = makeRandUSNPWD()+makeRandUSNPWD();
-	var exp = null;
+	var exp = 0;
 
 	var result = crypt(msg, usn, pwd, exp);
 	result = decrypt(result, usn, pwd, exp);
@@ -140,4 +140,19 @@ QUnit.test("random 3", function (assert) {
 	var ok = result.indexOf(msg);
 
 	assert.ok(ok==0, "that's ok!");
+});
+
+QUnit.test("With expiration", function (assert) {
+	var msg = makeRandString();
+	msg = msg.toUpperCase();
+	var usn = makeRandUSNPWD();
+	var pwd = makeRandUSNPWD()+makeRandUSNPWD();
+	var exp = 5;
+
+	var result = crypt(msg, usn, pwd, exp);
+	result = decrypt(result, usn, pwd, exp);
+
+	var ok = result.indexOf(msg);
+
+	assert.ok(ok==0, "that's ok! even with the pesky expiration");
 });

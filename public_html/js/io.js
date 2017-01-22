@@ -13,8 +13,6 @@ function decryptButton() {
 		return;
 	}
 
-	// check for expiration!!!
-
 	var result = decrypt(getCryptMsg(), getUsn(), getPwd(), getExpiration());
 	writeMsg(result,'clearText');
 }

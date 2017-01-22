@@ -53,7 +53,7 @@ QUnit.test("Full test 1", function (assert) {
 // here's a copypaste and there you go
 QUnit.test("Full test 2", function (assert) {
 	// convert
-	var start = ['G',':',';',',','.'];
+	var start = ['G',':',';',';','.'];
 
 	var c = new ToTen(new FirstMap().get());
 	var temp = c.convert(start);

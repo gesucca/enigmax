@@ -11,7 +11,7 @@
 			"file": "public_html/js/main.js",
 			"settings":
 			{
-				"buffer_size": 905,
+				"buffer_size": 1285,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -56,23 +56,34 @@
 	"expanded_folders":
 	[
 		"/Z/projects/enigmax/test",
-		"/Z/projects/enigmax/test/unit"
+		"/Z/projects/enigmax/test/unit",
+		"/Z/projects/enigmax/public_html",
+		"/Z/projects/enigmax/public_html/js"
 	],
 	"file_history":
 	[
+		"/Z/projects/enigmax/test/unit/expireTest.js",
+		"/Z/projects/enigmax/test/unit/totalTest.js",
+		"/Z/projects/enigmax/public_html/js/def_maps.js",
+		"/Z/projects/enigmax/public_html/js/def_expire.js",
+		"/Z/projects/enigmax/test/unit/baseTest.js",
+		"/Z/projects/enigmax/public_html/js/io.js",
+		"/Z/projects/enigmax/public_html/js/main.js",
+		"/Z/projects/enigmax/public_html/js/def_bases.js",
+		"/Z/projects/enigmax/test/test.html",
 		"/Z/projects/enigmax/enigmax",
-		"/Z/projects/enigmax/public_html/js/fun_hasher.js",
-		"/Z/projects/enigmax/test/unit/totalTest.js"
+		"/Z/projects/enigmax/public_html/js/fun_hasher.js"
 	],
 	"find":
 	{
-		"height": 26.0
+		"height": 35.0
 	},
 	"find_in_files":
 	{
-		"height": 0.0,
+		"height": 93.0,
 		"where_history":
 		[
+			""
 		]
 	},
 	"find_state":
@@ -80,6 +91,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"'*'",
 			"});"
 		],
 		"highlight": true,
@@ -88,6 +100,7 @@
 		"regex": false,
 		"replace_history":
 		[
+			"';'"
 		],
 		"reverse": false,
 		"show_context": true,
@@ -107,15 +120,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 905,
+						"buffer_size": 1285,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								172,
-								172
+								992,
+								992
 							]
 						],
 						"settings":
@@ -139,7 +152,7 @@
 	},
 	"input":
 	{
-		"height": 0.0
+		"height": 35.0
 	},
 	"layout":
 	{
