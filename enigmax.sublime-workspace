@@ -7,24 +7,6 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "public_html/js/main.js",
-			"settings":
-			{
-				"buffer_size": 816,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "public_html/js/fun_hasher.js",
-			"settings":
-			{
-				"buffer_size": 410,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -64,22 +46,42 @@
 	},
 	"expanded_folders":
 	[
-		"/Z/projects/enigmax/test",
-		"/Z/projects/enigmax/test/unit"
+		"/C/s/e/enigmax/test",
+		"/C/s/e/enigmax/test/unit",
+		"/C/s/e/enigmax/public_html",
+		"/C/s/e/enigmax/public_html/js"
 	],
 	"file_history":
 	[
-		"/Z/projects/enigmax/test/unit/totalTest.js"
+		"/C/s/e/enigmax/public_html/js/gui_lang.js",
+		"/C/s/e/enigmax/public_html/js/fun_hasher.js",
+		"/C/s/e/enigmax/public_html/js/def_expire.js",
+		"/C/s/e/enigmax/public_html/js/main.js",
+		"/C/s/e/enigmax/public_html/js/def_maps.js",
+		"/C/s/e/enigmax/public_html/js/def_bases.js",
+		"/C/s/e/enigmax/test/unit/expireTest.js",
+		"/Z/projects/enigmax/test/unit/expireTest.js",
+		"/Z/projects/enigmax/test/unit/totalTest.js",
+		"/Z/projects/enigmax/public_html/js/def_maps.js",
+		"/Z/projects/enigmax/public_html/js/def_expire.js",
+		"/Z/projects/enigmax/test/unit/baseTest.js",
+		"/Z/projects/enigmax/public_html/js/io.js",
+		"/Z/projects/enigmax/public_html/js/main.js",
+		"/Z/projects/enigmax/public_html/js/def_bases.js",
+		"/Z/projects/enigmax/test/test.html",
+		"/Z/projects/enigmax/enigmax",
+		"/Z/projects/enigmax/public_html/js/fun_hasher.js"
 	],
 	"find":
 	{
-		"height": 26.0
+		"height": 35.0
 	},
 	"find_in_files":
 	{
-		"height": 0.0,
+		"height": 93.0,
 		"where_history":
 		[
+			""
 		]
 	},
 	"find_state":
@@ -87,6 +89,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"'*'",
 			"});"
 		],
 		"highlight": true,
@@ -95,6 +98,7 @@
 		"regex": false,
 		"replace_history":
 		[
+			"';'"
 		],
 		"reverse": false,
 		"show_context": true,
@@ -105,66 +109,8 @@
 	"groups":
 	[
 		{
-			"selected": 1,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "public_html/js/main.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 816,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								816,
-								816
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 55.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "public_html/js/fun_hasher.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 410,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								410,
-								410
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				}
 			]
 		}
 	],
@@ -174,7 +120,7 @@
 	},
 	"input":
 	{
-		"height": 0.0
+		"height": 35.0
 	},
 	"layout":
 	{
@@ -245,7 +191,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 149.0,
+	"side_bar_width": 283.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

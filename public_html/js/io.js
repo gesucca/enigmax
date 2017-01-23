@@ -1,5 +1,5 @@
 function cryptButton() {
-	var m = new MsgChecker(getClearMsg(), /^[A-Z0-9'?!,.:;\n ]*$/, true);
+	var m = new MsgChecker(getClearMsg(), /^[A-Z0-9'?!,.:\n ]*$/, true);
 	if (!checkFor(m))
 		return;
 
@@ -12,8 +12,6 @@ function decryptButton() {
 	if (!checkFor(m)){
 		return;
 	}
-
-	// check for expiration!!!
 
 	var result = decrypt(getCryptMsg(), getUsn(), getPwd(), getExpiration());
 	writeMsg(result,'clearText');

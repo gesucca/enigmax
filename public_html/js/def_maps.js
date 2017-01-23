@@ -3,7 +3,6 @@ function reverse(map) {
 	for(var key in map){
 		ret[map[key]] = key;
 	}
-	//console.log(ret);
 	return ret;
 };
 
@@ -55,8 +54,8 @@ var FirstMap = function() {
 		'.' : 42,
 		':' : 43,
 		',' : 44,
-		';' : 45,
-		'*' : 46   // eventual expiration char
+		';' : 45,  // expiration char
+		'*' : 46   // don't remove this, everything will break in a mysterious way
 	};
 
 	this.get = function() {

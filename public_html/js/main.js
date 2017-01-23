@@ -1,5 +1,8 @@
 function crypt(msg, usn, pwd, exp) {
 
+	if (exp!=0)
+		msg = expirator(exp, msg);
+
 	var s = new Slicer(msg);
 	var b = new Builder();
 
@@ -7,20 +10,18 @@ function crypt(msg, usn, pwd, exp) {
 	var d = new ToMap(new LastMap().get());
 
 	while (!s.isEnd()){
-		var slice = s.getSlice();
-		var temp = c.convert(slice); //temp is an int!
+		var temp = c.convert(s.getSlice()); //temp is an int!
 
-		// do crypt stuff
 		if (temp!=0)
 			temp -= getMagicNumber(usn, pwd);
 
 		b.append(d.convert(temp));
 	}
-	//regex magic to get rid of double spaces
-	return b.get().replace(/\s\s+/g, ' ');
+
+	return noDoubleSpace(b.get());
 }
 
-function decrypt(msg, usn, pwd, exp) {
+function decrypt(msg, usn, pwd) {
 
 	var s = new Slicer(msg);
 	var b = new Builder();
@@ -29,15 +30,20 @@ function decrypt(msg, usn, pwd, exp) {
 	var d = new ToMap(new FirstMap().getReverse());
 
 	while (!s.isEnd()){
-		var slice = s.getSlice();
-		var temp = c.convert(slice);
+		var temp = c.convert(s.getSlice()); //temp is an int!
 
-		//decrypt stuff
 		temp += getMagicNumber(usn, pwd);
 
 		b.append(d.convert(temp));
 	}
 
+	var e = new ExpChecker(b.get());
+	msg = e.getMsgExpChecked();
+	
+	return noDoubleSpace(msg);
+}
+
+function noDoubleSpace(msg) {
 	//regex magic to get rid of double spaces
-	return b.get().replace(/\s\s+/g, ' ');
+	return msg.replace(/\s\s+/g, ' ');
 }
