@@ -14,5 +14,5 @@ QUnit.test("Checker 2", function (assert) {
 	var msg = ';1;'+ 1485021466275 + ';messaggio';
 	var after = new ExpChecker(msg).getMsgExpChecked();
 
-	assert.deepEqual(after, ';', 'surprisingly, this works too');
+	assert.deepEqual(after, 'THE MESSAGE BLEW UP! IT CANNOT BE DECIPHERED ANYMORE.', 'surprisingly, this works too');
 });

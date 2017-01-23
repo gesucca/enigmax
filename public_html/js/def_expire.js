@@ -1,6 +1,3 @@
-/*
-* refactor this shit!
-*/
 function expirator(time, msg){
 	var now = new Date().getTime();
 	return (';' + time + ';' + now + ';' + msg);
@@ -8,29 +5,33 @@ function expirator(time, msg){
 
 var ExpChecker = function(msg) {
 
+	var dirtyMsg = msg;
+
 	function needsExpCheck(){
-		if (msg.indexOf(';') == 0)
+		if (dirtyMsg.indexOf(';') == 0)
 		return true;
 		else 
 			return false;
 	}
 
 	function isExpired() {
-		//this is a mess, try to write it a little better
-		var index1, index2;
 
-		index1 = msg.indexOf(';');
-		msg = msg.substring(index1+1,msg.length);
-		index2 = msg.indexOf(';');
+		var checkMsg = dirtyMsg;
 
-		var hourLimitMs = msg.substring(0,index2) * 3600000;
+		function getLimit() {
+			checkMsg = checkMsg.substring(checkMsg.indexOf(';')+1,checkMsg.length);
+			return checkMsg.substring(0, checkMsg.indexOf(';')) * 3600000;
+		}
 
-		msg = msg.substring(index2+1,msg.length);
+		function getOriginTime() {
+			checkMsg = checkMsg.substring(checkMsg.indexOf(';')+1,checkMsg.length);
+			return parseInt(checkMsg.substring(0,checkMsg.indexOf(';')));
+		}
 
-		var origTime = parseInt(msg.substring(0,msg.indexOf(';')));
+		var hourLimitMs = getLimit();
+		var origTime = getOriginTime();
+
 		var now = new Date().getTime();
-
-		msg = msg.substring(msg.indexOf(';')+1, msg.legnth)
 
 		if (now-origTime > hourLimitMs)
 			return true;
@@ -38,29 +39,23 @@ var ExpChecker = function(msg) {
 			return false;
 	}
 
-	/*function returnSlicedMsg() {
-		msg = msg.substring(msg.indexOf(';')+1, msg.length);
-		msg = msg.substring(msg.indexOf(';')+1, msg.length);
-		msg = msg.substring(msg.indexOf(';')+1, msg.length);
-	}*/
+	function clean(dirtyMsg) {
+		// cut away everyting before the third ;
+		for (i=0; i<3; i++) 
+			dirtyMsg = dirtyMsg.substring(dirtyMsg.indexOf(';')+1, dirtyMsg.length);
+		
+		return dirtyMsg;
+	}
 
 	this.getMsgExpChecked = function() {
 
-		//again, this is awful, I am modifying things while I am checking them...
-		//hell, I totally need some sleep
-
 		if (!needsExpCheck())
-			return msg;
-
-		// console.log('exp'+needsExpCheck());
+			return dirtyMsg;
 
 		if (isExpired())
-			return ';';
+			return 'THE MESSAGE BLEW UP! IT CANNOT BE DECIPHERED ANYMORE.';
 
-		// console.log('exp'+isExpired());
-		// console.log('exp'+msg);
-
-		return msg;
+		return clean(dirtyMsg);
 	}
 }
 

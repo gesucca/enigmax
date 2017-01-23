@@ -6,7 +6,6 @@ var ToTen = function(basicMap) {
 		var base10 = 0;
 		for (i=0; i<msg.length; i++) {
 			base10 += (Math.pow(basic, i) * basicMap[msg[i]]);
-			//console.log('tobase10: step '+i+' value '+Math.pow(basic, i) * basicMap[msg[i]]);
 		}
 		return base10;
 	}
