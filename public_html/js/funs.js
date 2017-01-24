@@ -46,3 +46,14 @@ function noDoubleSpace(msg) {
 	return msg.replace(/\s\s+/g, ' ');
 }
 
+function encodeLength(msg) {
+	return msg.length + "-" + msg;
+}
+
+function decodeLength(msg) {
+	var splitPoint = msg.indexOf('-');
+	var l = parseInt(msg.substring(0, splitPoint));
+
+	return msg.substring(splitPoint+1, splitPoint+1+l);
+}
+

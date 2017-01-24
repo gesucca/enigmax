@@ -185,7 +185,8 @@ var FirstMap = function() {
 		':' : 43,
 		',' : 44,
 		';' : 45,  // expiration char
-		'*' : 46   // don't remove this, everything will break in a mysterious way
+		'-' : 46,  // length char
+		'_' : 47   // this is a void one, without it conversion will not work!
 	};
 
 	this.get = function() {
@@ -293,7 +294,7 @@ var Slicer = function(msg){
 	this.getSlice = function(){
 
 		var output = [];
-		
+
 		if (i == array.length)
 			finish = true;
 

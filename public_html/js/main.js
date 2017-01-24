@@ -1,5 +1,7 @@
 function crypt(msg, usn, pwd, exp) {
 
+	msg = encodeLength(msg);
+
 	if (exp!=0)
 		msg = new Expirator(exp, msg).getExpMsg();
 
@@ -39,6 +41,8 @@ function decrypt(msg, usn, pwd) {
 
 	var e = new ExpChecker(b.get());
 	msg = e.getMsgExpChecked();
+
+	msg = decodeLength(msg);
 	
 	return noDoubleSpace(msg);
 }
