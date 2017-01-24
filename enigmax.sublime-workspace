@@ -7,6 +7,15 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "public_html/index.html",
+			"settings":
+			{
+				"buffer_size": 5295,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -46,7 +55,6 @@
 	},
 	"expanded_folders":
 	[
-		"/Z/projects/enigmax/test/unit",
 		"/Z/projects/enigmax/public_html",
 		"/Z/projects/enigmax/public_html/js"
 	],
@@ -104,8 +112,38 @@
 	"groups":
 	[
 		{
+			"selected": 0,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "public_html/index.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5295,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1948,
+								1948
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
 			]
 		}
 	],
