@@ -46,29 +46,24 @@
 	},
 	"expanded_folders":
 	[
-		"/C/s/e/enigmax/test",
-		"/C/s/e/enigmax/test/unit",
-		"/C/s/e/enigmax/public_html",
-		"/C/s/e/enigmax/public_html/js"
+		"/Z/projects/enigmax/test/unit",
+		"/Z/projects/enigmax/public_html",
+		"/Z/projects/enigmax/public_html/js"
 	],
 	"file_history":
 	[
-		"/C/s/e/enigmax/public_html/js/gui_lang.js",
-		"/C/s/e/enigmax/public_html/js/fun_hasher.js",
-		"/C/s/e/enigmax/public_html/js/def_expire.js",
-		"/C/s/e/enigmax/public_html/js/main.js",
-		"/C/s/e/enigmax/public_html/js/def_maps.js",
-		"/C/s/e/enigmax/public_html/js/def_bases.js",
-		"/C/s/e/enigmax/test/unit/expireTest.js",
-		"/Z/projects/enigmax/test/unit/expireTest.js",
+		"/Z/projects/enigmax/public_html/index.html",
+		"/Z/projects/enigmax/public_html/js/objs.js",
+		"/Z/projects/enigmax/public_html/js/main.js",
+		"/Z/projects/enigmax/public_html/js/funs.js",
+		"/Z/projects/enigmax/public_html/js/io.js",
+		"/Z/projects/enigmax/test/test.html",
+		"/Z/projects/enigmax/public_html/js/def_expire.js",
 		"/Z/projects/enigmax/test/unit/totalTest.js",
 		"/Z/projects/enigmax/public_html/js/def_maps.js",
-		"/Z/projects/enigmax/public_html/js/def_expire.js",
+		"/Z/projects/enigmax/test/unit/expireTest.js",
 		"/Z/projects/enigmax/test/unit/baseTest.js",
-		"/Z/projects/enigmax/public_html/js/io.js",
-		"/Z/projects/enigmax/public_html/js/main.js",
 		"/Z/projects/enigmax/public_html/js/def_bases.js",
-		"/Z/projects/enigmax/test/test.html",
 		"/Z/projects/enigmax/enigmax",
 		"/Z/projects/enigmax/public_html/js/fun_hasher.js"
 	],
@@ -191,7 +186,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 283.0,
+	"side_bar_width": 149.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

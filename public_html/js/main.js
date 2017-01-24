@@ -1,7 +1,7 @@
 function crypt(msg, usn, pwd, exp) {
 
 	if (exp!=0)
-		msg = expirator(exp, msg);
+		msg = new Expirator(exp, msg).getExpMsg();
 
 	var s = new Slicer(msg);
 	var b = new Builder();
@@ -41,9 +41,4 @@ function decrypt(msg, usn, pwd) {
 	msg = e.getMsgExpChecked();
 	
 	return noDoubleSpace(msg);
-}
-
-function noDoubleSpace(msg) {
-	//regex magic to get rid of double spaces
-	return msg.replace(/\s\s+/g, ' ');
 }
