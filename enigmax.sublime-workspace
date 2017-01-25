@@ -7,15 +7,6 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "public_html/index.html",
-			"settings":
-			{
-				"buffer_size": 5295,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -55,29 +46,18 @@
 	},
 	"expanded_folders":
 	[
-		"/Z/projects/enigmax/public_html",
-		"/Z/projects/enigmax/public_html/js"
+		"/C/s/e/enigmax/test",
+		"/C/s/e/enigmax/test/unit",
+		"/C/s/e/enigmax/public_html",
+		"/C/s/e/enigmax/public_html/js"
 	],
 	"file_history":
 	[
-		"/Z/projects/enigmax/public_html/index.html",
-		"/Z/projects/enigmax/public_html/js/objs.js",
-		"/Z/projects/enigmax/public_html/js/main.js",
-		"/Z/projects/enigmax/public_html/js/funs.js",
-		"/Z/projects/enigmax/public_html/js/io.js",
-		"/Z/projects/enigmax/test/test.html",
-		"/Z/projects/enigmax/public_html/js/def_expire.js",
-		"/Z/projects/enigmax/test/unit/totalTest.js",
-		"/Z/projects/enigmax/public_html/js/def_maps.js",
-		"/Z/projects/enigmax/test/unit/expireTest.js",
-		"/Z/projects/enigmax/test/unit/baseTest.js",
-		"/Z/projects/enigmax/public_html/js/def_bases.js",
-		"/Z/projects/enigmax/enigmax",
-		"/Z/projects/enigmax/public_html/js/fun_hasher.js"
+		
 	],
 	"find":
 	{
-		"height": 35.0
+		"height": 36.0
 	},
 	"find_in_files":
 	{
@@ -112,38 +92,8 @@
 	"groups":
 	[
 		{
-			"selected": 0,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "public_html/index.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 5295,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1948,
-								1948
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				}
 			]
 		}
 	],
@@ -224,7 +174,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 149.0,
+	"side_bar_width": 174.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

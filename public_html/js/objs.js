@@ -125,11 +125,15 @@ var ExpChecker = function(msg) {
 
 	this.getMsgExpChecked = function() {
 
+		var expAlert = 'THE MESSAGE BLEW UP!\n \nIT CANNOT BE DECIPHERED ANYMORE!';
+		
 		if (!needsExpCheck())
 			return dirtyMsg;
 
-		if (isExpired())
-			return 'THE MESSAGE BLEW UP! IT CANNOT BE DECIPHERED ANYMORE.';
+		if (isExpired()) {
+			alert(expAlert);
+			return '54-' + expAlert;
+		}
 
 		return clean(dirtyMsg);
 	}
