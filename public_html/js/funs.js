@@ -22,6 +22,7 @@ function setLanguage(lang) {
 	}
 };
 
+
 /*BACK*/
 
 // String hashing: thanks SO
@@ -41,19 +42,25 @@ function getMagicNumber(usn, pwd) {
 	return Math.abs(theMagicNumber) % 9991;
 }
 
+//regex magic to get rid of double spaces
 function noDoubleSpace(msg) {
-	//regex magic to get rid of double spaces
 	return msg.replace(/\s\s+/g, ' ');
 }
 
-function encodeLength(msg) {
-	return msg.length + "-" + msg;
-}
-
+// it gets rid of those phantom chars at the end
 function decodeLength(msg) {
 	var splitPoint = msg.indexOf('-');
 	var l = parseInt(msg.substring(0, splitPoint));
 
 	return msg.substring(splitPoint+1, splitPoint+1+l);
 }
+
+//reversees an object: used for maps
+function reverse(map) {
+	var ret = {};
+	for(var key in map){
+		ret[map[key]] = key;
+	}
+	return ret;
+};
 

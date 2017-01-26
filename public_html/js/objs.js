@@ -29,6 +29,7 @@ var ToMap = function(targetMap) {
 	}
 }
 
+
 /*CHECKER*/
 
 var MsgChecker = function (msg, chars) {
@@ -68,6 +69,7 @@ var FieldChecker = function (fieldName, fieldValue) {
 		return true;
 	}
 }
+
 
 /*EXPIRATION*/
 
@@ -139,6 +141,7 @@ var ExpChecker = function(msg) {
 		return clean(dirtyMsg);
 	}
 }
+
 
 /*MAPS*/
 
@@ -279,13 +282,6 @@ var LastMap = function(){
 	};
 }
 
-function reverse(map) {
-	var ret = {};
-	for(var key in map){
-		ret[map[key]] = key;
-	}
-	return ret;
-};
 
 /*SLICER*/
 
@@ -306,15 +302,19 @@ var Slicer = function(msg){
 		if (finish)
 			return output;
 
+		// ok, I won't refactor this, let's document it:
+		// if 5 elements or more left, take everything
 		if (i+5 <= array.length) {
 			output = [ array[i+0], array[i+1], array[i+2], array[i+3], array[i+4] ];
 			i += 5;
 		}
+		// if less than 5 elements has yet to be considered...
 		else if ((array.length-i) < 5) {
+			// take everything left
 			for (; i < array.length; i++) {
 				output.push(array[i]);
 			}
-			//fill up to five
+			//then fill up to five
 			for (k = output.length; k < 5; k++) {
 				output.push(' ');
 			}
@@ -340,6 +340,7 @@ var Builder = function(){
 	this.append = function(slice){
 
 		if (slice.length > 5)
+			// nice, the only error thrown is the only one that keeps spawning in unit test from time to time
 			throw "ERROR BUILDER: Slice too long! " + slice;
 
 		if (slice.length < 5) {

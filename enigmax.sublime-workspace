@@ -7,6 +7,15 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "public_html/index.html",
+			"settings":
+			{
+				"buffer_size": 4696,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -46,15 +55,12 @@
 	},
 	"expanded_folders":
 	[
-		"/C/s/e/enigmax/test",
-		"/C/s/e/enigmax/test/unit",
 		"/C/s/e/enigmax/public_html",
 		"/C/s/e/enigmax/public_html/js"
 	],
 	"file_history":
 	[
-		"/C/s/e/enigmax/test/unit/expireTest.js",
-		"/C/s/e/enigmax/public_html/index.html"
+		
 	],
 	"find":
 	{
@@ -73,6 +79,9 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"encod",
+			"encodeLe",
+			"\\",
 			"'*'",
 			"});"
 		],
@@ -82,6 +91,7 @@
 		"regex": false,
 		"replace_history":
 		[
+			"/",
 			"';'"
 		],
 		"reverse": false,
@@ -93,8 +103,38 @@
 	"groups":
 	[
 		{
+			"selected": 0,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "public_html/index.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4696,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1369,
+								1369
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 60.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
 			]
 		}
 	],
@@ -137,7 +177,7 @@
 	"project": "enigmax",
 	"replace":
 	{
-		"height": 48.0
+		"height": 66.0
 	},
 	"save_all_on_build": true,
 	"select_file":
