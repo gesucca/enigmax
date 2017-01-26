@@ -30,6 +30,7 @@ var ToMap = function(targetMap) {
 }
 
 /*CHECKER*/
+
 var MsgChecker = function (msg, chars) {
 
 	var popUpVoid = 'Your message is empty!\nNothing will be done...';
