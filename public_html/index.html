@@ -22,7 +22,7 @@
 			.lang-button {display:none;}
 		</style>
 		<div id="nojs-msg">
-		<br>
+			<br>
 			You don't have JavaScript enabled in your browser, and this is a JavaScript app. <a href="http://enable-javascript.com/en/">Good luck with that.</a>
 			<br><br>
 			Non hai abilitato JavaScript nel tuo browser, e questa app ne ha bisogno. <a href="http://enable-javascript.com/en/">Abilitalo!</a>
@@ -78,6 +78,11 @@
 		</div>
 		<div style="float: right">
 			<textarea id="cryptText" rows="10" cols="30"></textarea>
+
+			
+
+
+
 		</div>
 		<div style="display: table; margin: 0 auto;">
 			<br>
@@ -99,6 +104,11 @@
 			</div>
 			<br>
 		</div>
+
+		<br>
+		<button id="copy" onclick="copyToClipboard(document.getElementById('cryptText'));"></button>
+
+		
 	</div>
 	<br>
 	<div class="text">
