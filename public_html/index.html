@@ -72,18 +72,12 @@
 			</form> 
 		</div>
 		<br>
-		<!-- buttons placeholders are set on lang management with jQuery -->
 		<div style="float: left">
 			<textarea id="clearText" rows="10" cols="30"></textarea>
 		</div>
 		<div style="float: right">
 			<textarea id="cryptText" rows="10" cols="30"></textarea>
-
-			
-
-
-
-		</div>
+		</div>>
 		<div style="display: table; margin: 0 auto;">
 			<br>
 			<div>
@@ -104,11 +98,19 @@
 			</div>
 			<br>
 		</div>
+		<div style="display: table; margin: 0 auto;">
+			<button class="send" id="copy" onclick="copyToClipboard(document.getElementById('cryptText'));">
+				<img src="img/copypaste.png"></img>
+			</button>
+			<button class="send" id="mail" onclick="sendEmail();">
+				<img src="img/email.png"></img>
+			</button>
+			<button class="send" id="whatsapp" onclick="sendWhatsApp();">
+				<img src="img/wa.png"></img>
+			</button>
 
+		</div>
 		<br>
-		<button id="copy" onclick="copyToClipboard(document.getElementById('cryptText'));"></button>
-
-		
 	</div>
 	<br>
 	<div class="text">

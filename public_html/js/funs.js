@@ -11,15 +11,13 @@ function setLanguage(lang) {
 
 	//switch unreachable text, such as placeholders
 	if (lang=='en') {
-		$('button[id=copy]').text('Copy to clipboard');
-		$('button[id=copy]').attr('title','This may not work on certain browsers!');
+		$('button[class=send]').attr('title','This may not work on certain browsers or devices!');
 		$('textarea[id=clearText]').attr('placeholder','The clear message goes here...');
 		$('textarea[id=cryptText]').attr('placeholder','The crypted message goes here...');
 		$('input[id=usn]').attr('placeholder','User Code');
 	}
 	if (lang=='it'){
-		$('button[id=copy]').text('Copia negli appunti');
-		$('button[id=copy]').attr('title','Questa cosa potrebbe non funzionare su qualche browser!');
+		$('button[class=send]').attr('title','Questa cosa potrebbe non funzionare su qualche browser o dispositivo!');
 		$('textarea[id=clearText]').attr('placeholder','Scrivi qui il messaggio in chiaro...');
 		$('textarea[id=cryptText]').attr('placeholder','Incolla qui il messaggio cifrato...');
 		$('input[id=usn]').attr('placeholder','Codice Utente');
@@ -75,6 +73,14 @@ function copyToClipboard(elem) {
         target.textContent = "";
     }
     return succeed;
+}
+
+function sendEmail(){
+    window.location.href="mailto:?body=" + getCryptMsg() + escape(window.location.href);
+}
+
+function sendWhatsApp() {
+    window.location.href="whatsapp://send?text=Hello%20World!" + escape(window.location.href);
 }
 
 
