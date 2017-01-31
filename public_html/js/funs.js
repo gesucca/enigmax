@@ -11,12 +11,14 @@ function setLanguage(lang) {
 
 	//switch unreachable text, such as placeholders
 	if (lang=='en') {
+        $('form[class=expiration_form]').attr('title','N.B.:  0 hours means the message will never self-destruct');
 		$('button[class=send]').attr('title','This may not work on certain browsers or devices!');
 		$('textarea[id=clearText]').attr('placeholder','The clear message goes here...');
 		$('textarea[id=cryptText]').attr('placeholder','The crypted message goes here...');
 		$('input[id=usn]').attr('placeholder','User Code');
 	}
 	if (lang=='it'){
+        $('form[class=expiration_form]').attr('title','N.B.:  0 ore significa che il messaggio non si autodistruggerà mai');
 		$('button[class=send]').attr('title','Questa cosa potrebbe non funzionare su qualche browser o dispositivo!');
 		$('textarea[id=clearText]').attr('placeholder','Scrivi qui il messaggio in chiaro...');
 		$('textarea[id=cryptText]').attr('placeholder','Incolla qui il messaggio cifrato...');
@@ -76,11 +78,11 @@ function copyToClipboard(elem) {
 }
 
 function sendEmail(){
-    window.location.href="mailto:?body=" + getCryptMsg() + escape(window.location.href);
+    window.location.href="mailto:?body=" + getCryptMsg();
 }
 
 function sendWhatsApp() {
-    window.location.href="whatsapp://send?text=Hello%20World!" + escape(window.location.href);
+    window.location.href="whatsapp://send?text=" + getCryptMsg();
 }
 
 
