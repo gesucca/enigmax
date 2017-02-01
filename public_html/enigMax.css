@@ -14,7 +14,7 @@ div#nojs-msg{
 	color: red;
 }
 
-.lang-button {
+.lang-button, .actionb {
 	padding: 5px;
 	background-color: #b3b3b3;
 	border: 1px solid black;
@@ -25,12 +25,12 @@ div#nojs-msg{
 	transition-duration: 0.1s;
 }
 
-.lang-button:hover {
+.lang-button:hover, .actionb:hover {
 	background-color: #4CAF50; /* Green */
 	color: white;
 }
 
-.lang-button:active {
+.lang-button:active, .actionb:active {
 	background-color: #3e8e41;
 	box-shadow: 0 5px #666;
 	transform: translateY(4px);

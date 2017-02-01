@@ -11,18 +11,18 @@ function setLanguage(lang) {
 
 	//switch unreachable text, such as placeholders
 	if (lang=='en') {
-        $('form[class=expiration_form]').attr('title','N.B.:  0 hours means the message will never self-destruct');
+		$('form[class=expiration_form]').attr('title','N.B.:  0 hours means the message will never self-destruct');
 		$('button[class=send]').attr('title','This may not work on certain browsers or devices!');
-		$('textarea[id=clearText]').attr('placeholder','The clear message goes here...');
-		$('textarea[id=cryptText]').attr('placeholder','The crypted message goes here...');
-		$('input[id=usn]').attr('placeholder','User Code');
+		$('#clearText').attr('placeholder','The clear message goes here...');
+		$('#cryptText').attr('placeholder','The crypted message goes here...');
+		$('#usn').attr('placeholder','User Code');
 	}
 	if (lang=='it'){
-        $('form[class=expiration_form]').attr('title','N.B.:  0 ore significa che il messaggio non si autodistruggerà mai');
+		$('form[class=expiration_form]').attr('title','N.B.:  0 ore significa che il messaggio non si autodistruggerà mai');
 		$('button[class=send]').attr('title','Questa cosa potrebbe non funzionare su qualche browser o dispositivo!');
-		$('textarea[id=clearText]').attr('placeholder','Scrivi qui il messaggio in chiaro...');
-		$('textarea[id=cryptText]').attr('placeholder','Incolla qui il messaggio cifrato...');
-		$('input[id=usn]').attr('placeholder','Codice Utente');
+		$('#clearText').attr('placeholder','Scrivi qui il messaggio in chiaro...');
+		$('#cryptText').attr('placeholder','Incolla qui il messaggio cifrato...');
+		$('#usn').attr('placeholder','Codice Utente');
 	}
 };
 
@@ -77,12 +77,16 @@ function copyToClipboard(elem) {
     return succeed;
 }
 
-function sendEmail(){
-    window.location.href="mailto:?body=" + getCryptMsg();
+function send(){
+	window.location.href="mailto:?body=" + getCryptMsg();
 }
 
-function sendWhatsApp() {
-    window.location.href="whatsapp://send?text=" + getCryptMsg();
+function clearAll() {
+	$('#clearText').val('');
+	$('#cryptText').val('');
+	$('#usn').val('');
+	$('#pwd').val('');
+	$('#expiration').val('0');
 }
 
 
