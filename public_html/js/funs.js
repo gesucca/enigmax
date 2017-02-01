@@ -11,14 +11,14 @@ function setLanguage(lang) {
 
 	//switch unreachable text, such as placeholders
 	if (lang=='en') {
-        $('form[class=expiration_form]').attr('title','N.B.:  0 hours means the message will never self-destruct');
+		$('form[class=expiration_form]').attr('title','N.B.:  0 hours means the message will never self-destruct');
 		$('button[class=send]').attr('title','This may not work on certain browsers or devices!');
 		$('textarea[id=clearText]').attr('placeholder','The clear message goes here...');
 		$('textarea[id=cryptText]').attr('placeholder','The crypted message goes here...');
 		$('input[id=usn]').attr('placeholder','User Code');
 	}
 	if (lang=='it'){
-        $('form[class=expiration_form]').attr('title','N.B.:  0 ore significa che il messaggio non si autodistruggerà mai');
+		$('form[class=expiration_form]').attr('title','N.B.:  0 ore significa che il messaggio non si autodistruggerà mai');
 		$('button[class=send]').attr('title','Questa cosa potrebbe non funzionare su qualche browser o dispositivo!');
 		$('textarea[id=clearText]').attr('placeholder','Scrivi qui il messaggio in chiaro...');
 		$('textarea[id=cryptText]').attr('placeholder','Incolla qui il messaggio cifrato...');
@@ -78,11 +78,11 @@ function copyToClipboard(elem) {
 }
 
 function sendEmail(){
-    window.location.href="mailto:?body=" + getCryptMsg();
+	window.location.href="mailto:?body=" + getCryptMsg();
 }
 
 function sendWhatsApp() {
-    window.location.href="whatsapp://send?text=" + getCryptMsg();
+	window.location.href="whatsapp://send?text=" + getCryptMsg();
 }
 
 
@@ -118,7 +118,7 @@ function decodeLength(msg) {
 	return msg.substring(splitPoint+1, splitPoint+1+l);
 }
 
-//reversees an object: used for maps
+// reversees an object: used for maps
 function reverse(map) {
 	var ret = {};
 	for(var key in map){
@@ -127,3 +127,35 @@ function reverse(map) {
 	return ret;
 };
 
+// add random characters into the message
+function obfuscate(msg) {
+
+	function rndChar() {
+		var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!?";
+		return possible.charAt(Math.floor(Math.random() * possible.length));
+	}
+
+	var output = '';
+
+	for (i=0; i<msg.length; i++) {
+		output += msg.charAt(i);
+		if ((msg.charCodeAt(i)%3) == 0)
+			output += rndChar();
+	}
+
+	return output;
+} 
+
+// clarificate obfuscated msg
+function clarificate(msg) {
+
+	var output = '';
+
+	for (i=0; i<msg.length; i++) {
+		output += msg.charAt(i);
+		if ((msg.charCodeAt(i)%3) == 0)
+			i++;
+	}
+
+	return output;
+}

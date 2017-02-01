@@ -1,5 +1,7 @@
 function crypt(msg, usn, pwd, exp) {
 
+	msg = obfuscate(msg);
+
 	msg = msg.length + "-" + msg;
 
 	if (exp!=0)
@@ -44,6 +46,8 @@ function decrypt(msg, usn, pwd) {
 	msg = e.getMsgExpChecked();
 
 	msg = decodeLength(msg);
+
+	msg = clarificate(msg);
 	
 	return noDoubleSpace(msg);
 }
