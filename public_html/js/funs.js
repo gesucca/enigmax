@@ -81,12 +81,24 @@ function send(){
 	window.location.href="mailto:?body=" + getCryptMsg();
 }
 
+// erase content of all user input fields
 function clearAll() {
 	$('#clearText').val('');
 	$('#cryptText').val('');
 	$('#usn').val('');
 	$('#pwd').val('');
 	$('#expiration').val('0');
+}
+
+// close the dropdown menu if the user clicks outside of it
+window.onclick = function(event) {
+	if (!event.target.matches('.actionb')) {
+		var dropdowns = document.getElementsByClassName("dropdown-content");
+		for (var i = 0; i < dropdowns.length; i++) {
+			if (dropdowns[i].classList.contains('show'))
+				dropdowns[i].classList.remove('show');
+		}
+	}
 }
 
 
