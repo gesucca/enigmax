@@ -81,6 +81,10 @@ function sendMail(){
 	window.location.href="mailto:?body=" + getCryptMsg();
 }
 
+function sendSMS() {
+	window.location.href="sms:?&body=" + getCryptMsg();
+}
+
 function sendWa(){
 	window.location.href="whatsapp://send?text=" + getCryptMsg();
 }

@@ -104,7 +104,7 @@
 		<div style="display: table; margin: 0 auto;">
 			<br>
 			<div>
-				<button onclick="cryptButton()">
+				<button class="mainb" onclick="cryptButton()">
 					<img src="img/arrow_dx.png" alt="Crypt" height="35" width="50">
 					<br>
 					<div class="ltext" lang="en">Crypt!</div>
@@ -112,7 +112,7 @@
 				</button>
 			</div>
 			<div>
-				<button onclick="decryptButton()">
+				<button class="mainb" onclick="decryptButton()">
 					<img src="img/arrow_sx.png" alt="Decrypt"  height="35" width="50">
 					<br>
 					<div class="ltext" lang="en">Derypt!</div>
@@ -126,19 +126,11 @@
 			<button class="actionb" id="cp" onclick="copyToClipboard(document.getElementById('cryptText'));"></button>
 			<div class="dropdown">
 				<button class="actionb" id="snd" onclick="document.getElementById('myDropdown').classList.toggle('show')"></button>
-				
-
-
 				<div id="myDropdown" class="dropdown-content" style="z-index=1">
 					<a href="#main" onclick="sendMail()">Mail</a>
-					<a href="#main" onclick="sendWa()">WhatsApp</a>
-					<!-- add facebook etc -->
-					<a href="#main" onclick="sendWa()">WhatsApp</a>
+					<a href="#main" onclick="sendSMS()">SMS</a>
 					<a href="#main" onclick="sendWa()">WhatsApp</a>
 				</div>
-
-
-
 			</div>
 		</div>
 		<br>

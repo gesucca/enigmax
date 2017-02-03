@@ -16,11 +16,9 @@ div#nojs-msg{
 
 
 /*buttons*/
-.lang-button {
+.lang-button, .mainb {
 	padding: 5px;
-	background-color: #b3b3b3;
 	border: 1px solid black;
-	border-radius: 5px;
 	box-shadow: 0 5px #1a1a1a;
 
 	-webkit-transition-duration: 0.1s; /* Safari */
@@ -28,30 +26,41 @@ div#nojs-msg{
 	cursor: pointer;
 }
 
+.lang-button {
+	background-color: #b3b3b3;
+	border-radius: 5px;
+}
+
+.mainb {
+	height: 80px;  
+	width: 80px;
+	padding: 10px;
+}
+
 .actionb {
 	background-size: 40px 40px;
-	height: 50px;  
-	width: 50px;
-	padding: 5px;
+	height: 55px;  
+	width: 55px;
+	padding: 6px;
 
 	background-repeat:no-repeat;
 	background-position:center center;
 
-	box-shadow: 0 3px grey;
+	box-shadow: 0 3px darkgreen;
 	border: 1px solid black;
-	border-radius: 2px;
+	border-radius: 3px;
 
 	-webkit-transition-duration: 0.1s; /* Safari */
 	transition-duration: 0.1s;
 	cursor: pointer;
 }
 
-.lang-button:hover {
+.lang-button:hover, .mainb:hover {
 	background-color: #4CAF50; /* Green */
 	color: white;
 }
 
-.lang-button:active, .actionb:active {
+.lang-button:active, .actionb:active, .mainb:active {
 	background-color: #3e8e41;
 	box-shadow: 0 1px #666;
 	transform: translateY(2px);
@@ -71,6 +80,8 @@ div#nojs-msg{
 	min-width: 100px;
 	box-shadow: 0px 4px 8px 0px rgba(0,0,0,0.2);
 	z-index: 10;
+
+	bottom: 100%; /*open upside*/
 }
 
 /* Links inside the dropdown */
@@ -95,6 +106,12 @@ button#cp {
 }
 button#snd {
 	background-image: url(img/wa.png);
+}
+button#crypt {
+	background-image: url(img/arrow_dx.png);
+}
+button#decrypt {
+	background-image: url(img/arrow_sx.png);
 }
 
 
@@ -157,7 +174,7 @@ div#pedice_txt {
 
 	width: 50%;
 	height: 50%;
-	min-width: 800px;
+	min-width: 297px;
 	padding: 40px;
 
 	background: url(img/box.jpg);
