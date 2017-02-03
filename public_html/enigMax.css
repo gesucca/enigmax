@@ -16,9 +16,11 @@ div#nojs-msg{
 
 
 /*buttons*/
-.lang-button, .mainb {
-	padding: 5px;
+.lang-button, .actionb, .mainb {
 	border: 1px solid black;
+	border-radius: 5px;
+	padding: 5px;
+
 	box-shadow: 0 5px #1a1a1a;
 
 	-webkit-transition-duration: 0.1s; /* Safari */
@@ -27,32 +29,22 @@ div#nojs-msg{
 }
 
 .lang-button {
-	background-color: #b3b3b3;
-	border-radius: 5px;
+	background-color: grey;
 }
 
 .mainb {
 	height: 80px;  
 	width: 80px;
-	padding: 10px;
+	background-color: darkgrey;
 }
 
 .actionb {
 	background-size: 40px 40px;
 	height: 55px;  
 	width: 55px;
-	padding: 6px;
 
 	background-repeat:no-repeat;
 	background-position:center center;
-
-	box-shadow: 0 3px darkgreen;
-	border: 1px solid black;
-	border-radius: 3px;
-
-	-webkit-transition-duration: 0.1s; /* Safari */
-	transition-duration: 0.1s;
-	cursor: pointer;
 }
 
 .lang-button:hover, .mainb:hover {
@@ -63,7 +55,7 @@ div#nojs-msg{
 .lang-button:active, .actionb:active, .mainb:active {
 	background-color: #3e8e41;
 	box-shadow: 0 1px #666;
-	transform: translateY(2px);
+	transform: translateY(3px);
 }
 
 /* The container <div> - needed to position the dropdown content */
