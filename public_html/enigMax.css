@@ -217,6 +217,7 @@ textarea#clearText,  textarea#cryptText {
 	font-family: Courier, sans-serif;
 	font-size: 15px;
 	font-weight: bold;
+	color: black;
 
 	background-image: url(img/input.jpg);
 	background-position: bottom right;
