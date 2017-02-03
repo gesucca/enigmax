@@ -165,9 +165,11 @@ div#pedice_txt {
 	border-radius: 25px;
 
 	width: 50%;
-	height: 50%;
 	min-width: 297px;
-	padding: 40px;
+	padding-top: 40px;
+	padding-bottom: 0px;
+	padding-right: 45px;
+	padding-left: 45px;
 
 	background: url(img/box.jpg);
 	background-position: left top;
