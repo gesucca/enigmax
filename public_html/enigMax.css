@@ -35,7 +35,11 @@ div#nojs-msg{
 .mainb {
 	height: 80px;  
 	width: 80px;
-	background-color: darkgrey;
+
+	background: -moz-linear-gradient(top, rgba(245,246,246,0.7) 0%, rgba(219,220,226,0.7) 21%, rgba(184,186,198,0.7) 49%, rgba(221,223,227,0.7) 80%, rgba(245,246,246,0.7) 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top, rgba(245,246,246,0.7) 0%,rgba(219,220,226,0.7) 21%,rgba(184,186,198,0.7) 49%,rgba(221,223,227,0.7) 80%,rgba(245,246,246,0.7) 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom, rgba(245,246,246,0.7) 0%,rgba(219,220,226,0.7) 21%,rgba(184,186,198,0.7) 49%,rgba(221,223,227,0.7) 80%,rgba(245,246,246,0.7) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b3f5f6f6', endColorstr='#b3f5f6f6',GradientType=0 ); /* IE6-9 */
 }
 
 .actionb {
@@ -164,7 +168,7 @@ div#pedice_txt {
 	border: 5px solid green;
 	border-radius: 25px;
 
-	width: 50%;
+	width: 65%;
 	min-width: 297px;
 	padding-top: 40px;
 	padding-bottom: 0px;
@@ -173,6 +177,8 @@ div#pedice_txt {
 
 	background: url(img/box.jpg);
 	background-position: left top;
+
+	overflow: hidden;
 }
 
 .usn_pwd_date {
