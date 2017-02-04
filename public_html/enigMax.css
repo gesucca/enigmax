@@ -95,7 +95,7 @@ div#nojs-msg{
 
 /*set buttons image*/
 button#del {
-	background-image: url(img/del.jpg);
+	background-image: url(img/del.png);
 }
 button#cp {
 	background-image: url(img/copypaste.png);
@@ -210,7 +210,7 @@ div#pedice_txt {
 }
 
 textarea#clearText,  textarea#cryptText {
-	border: 2px solid #cccccc;
+	border: 1px solid black;
 	padding: 3px;
 	resize: none;
 
@@ -222,5 +222,5 @@ textarea#clearText,  textarea#cryptText {
 	background-image: url(img/input.jpg);
 	background-position: bottom right;
 
-	box-shadow: 1px 1px 1px #555 inset;
+	box-shadow: 2px 2px 2px #555 inset;
 }
