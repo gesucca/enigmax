@@ -1,30 +1,35 @@
-/*BASES*/
+class ToTen {
 
-var ToTen = function(basicMap) {
+	constructor(basicMap) {
+		this._basicMap = basicMap;
+		this._basic = Object.keys(basicMap).length;
+	}
 
-	var basic = Object.keys(basicMap).length;
-
-	this.convert = function(msg){
-		var base10 = 0;
-		for (i=0; i<msg.length; i++) {
-			base10 += (Math.pow(basic, i) * basicMap[msg[i]]);
+	convert(msg){
+		var output = 0, pos = null;
+		for (var i = 0; i<msg.length; i++) {
+			pos = msg[i];
+			output += (Math.pow(this._basic, i) * this._basicMap[pos]);
 		}
-		return base10;
+		return output;
 	}
 }
 
-var ToMap = function(targetMap) {
+class ToMap {
 
-	var target = Object.keys(targetMap).length;
+	constructor(targetMap) {
+		this._tMap = targetMap;
+		this._target = Object.keys(targetMap).length;
+	}
 
-	this.convert = function(int){
-		var converted = [];
-		while (Math.floor(int/target)>0)
-		{
-			converted.push(targetMap[int%target]);
-			int = Math.floor(int/target);
+	convert(int) {
+		var converted = [], rem = 0;
+		while (Math.floor(int/this._target)>0) {
+			rem = int%this._target;
+			converted.push(this._tMap[rem]);
+			int = Math.floor(int/this._target);
 		}
-		converted.push(targetMap[int]);
+		converted.push(this._tMap[int]);
 		return converted;
 	}
 }
@@ -341,7 +346,7 @@ var Builder = function(){
 
 		if (slice.length > 5)
 			// nice, the only error thrown is the only one that keeps spawning in unit test from time to time
-			throw "ERROR BUILDER: Slice too long! " + slice;
+		throw "ERROR BUILDER: Slice too long! " + slice;
 
 		if (slice.length < 5) {
 			for (i = slice.length; i < 5; i++) {
