@@ -49,6 +49,8 @@ div#nojs-msg{
 
 	background-repeat:no-repeat;
 	background-position:center center;
+
+	background-color: #cccccc;
 }
 
 .lang-button:hover, .mainb:hover {
@@ -169,7 +171,7 @@ div#pedice_txt {
 	border-radius: 25px;
 
 	width: 65%;
-	min-width: 297px;
+	min-width: 292px;
 	padding-top: 40px;
 	padding-bottom: 0px;
 	padding-right: 45px;
