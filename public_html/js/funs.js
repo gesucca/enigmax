@@ -1,38 +1,50 @@
 /*GUI*/
 
 function setLanguage(lang) {
-	var known = { en: true, it: true};
-	if(!known[lang])
-		lang = 'en';
+    var known = { en: true, it: true };
+    if (!known[lang])
+        lang = 'en';
 
-	//switch all divs class ltext 
-	$('div.ltext[lang='  + lang + ']').show();
-	$('div.ltext[lang!=' + lang + ']').hide(); 
+    //switch all divs class ltext 
+    $('div.ltext[lang=' + lang + ']').show();
+    $('div.ltext[lang!=' + lang + ']').hide();
 
-	//switch unreachable text, such as placeholders
-	if (lang=='en') {
-        $('form[class=expiration_form]').attr('title','N.B.:  0 hours means the message will never self-destruct');
-		$('button[class=send]').attr('title','This may not work on certain browsers or devices!');
-		$('textarea[id=clearText]').attr('placeholder','The clear message goes here...');
-		$('textarea[id=cryptText]').attr('placeholder','The crypted message goes here...');
-		$('input[id=usn]').attr('placeholder','User Code');
-	}
-	if (lang=='it'){
-        $('form[class=expiration_form]').attr('title','N.B.:  0 ore significa che il messaggio non si autodistruggerà mai');
-		$('button[class=send]').attr('title','Questa cosa potrebbe non funzionare su qualche browser o dispositivo!');
-		$('textarea[id=clearText]').attr('placeholder','Scrivi qui il messaggio in chiaro...');
-		$('textarea[id=cryptText]').attr('placeholder','Incolla qui il messaggio cifrato...');
-		$('input[id=usn]').attr('placeholder','Codice Utente');
-	}
+    //switch unreachable text, such as placeholders
+    if (lang == 'en') {
+        $('form[class=expiration_form]').attr('title', 'N.B.:  0 hours means the message will never self-destruct');
+        $('button[class=send]').attr('title', 'This may not work on certain browsers or devices!');
+        $('textarea[id=clearText]').attr('placeholder', 'The clear message goes here...');
+        $('textarea[id=cryptText]').attr('placeholder', 'The crypted message goes here...');
+        $('input[id=usn]').attr('placeholder', 'User Code');
+
+        FieldChecker.prototype.lang = 'en';
+        // popup text
+        MsgChecker.prototype.popUpVoid = 'Your message is empty!\nNothing will be done...';
+        MsgChecker.prototype.popUpIllegal = 'Your message contains illegal characters.\nOnly plain letters, numbers and basic puntuation are permitted.';
+
+
+    }
+    if (lang == 'it') {
+        $('form[class=expiration_form]').attr('title', 'N.B.:  0 ore significa che il messaggio non si autodistruggerà mai');
+        $('button[class=send]').attr('title', 'Questa cosa potrebbe non funzionare su qualche browser o dispositivo!');
+        $('textarea[id=clearText]').attr('placeholder', 'Scrivi qui il messaggio in chiaro...');
+        $('textarea[id=cryptText]').attr('placeholder', 'Incolla qui il messaggio cifrato...');
+        $('input[id=usn]').attr('placeholder', 'Codice Utente');
+
+        FieldChecker.prototype.lang = 'it';
+        // popup text
+        MsgChecker.prototype.popUpVoid = 'Il tuo messaggio è vuoto!\nNon cripto proprio niente...';
+        MsgChecker.prototype.popUpIllegal = 'Il tuo messaggio contiene caratteri non permessi.\nUsa solo lettere senza accenti, numeri e punteggiatura di base.';
+    }
 };
 
 // thanks SO
 function copyToClipboard(elem) {
-	// create hidden text element, if it doesn't already exist
-	var targetId = "_hiddenCopyText_";
-	var isInput = elem.tagName === "INPUT" || elem.tagName === "TEXTAREA";
-	var origSelectionStart, origSelectionEnd;
-	if (isInput) {
+    // create hidden text element, if it doesn't already exist
+    var targetId = "_hiddenCopyText_";
+    var isInput = elem.tagName === "INPUT" || elem.tagName === "TEXTAREA";
+    var origSelectionStart, origSelectionEnd;
+    if (isInput) {
         // can just use the original source element for the selection and copy
         target = elem;
         origSelectionStart = elem.selectionStart;
@@ -41,12 +53,12 @@ function copyToClipboard(elem) {
         // must use a temporary form element for the selection and copy
         target = document.getElementById(targetId);
         if (!target) {
-        	var target = document.createElement("textarea");
-        	target.style.position = "absolute";
-        	target.style.left = "-9999px";
-        	target.style.top = "0";
-        	target.id = targetId;
-        	document.body.appendChild(target);
+            var target = document.createElement("textarea");
+            target.style.position = "absolute";
+            target.style.left = "-9999px";
+            target.style.top = "0";
+            target.id = targetId;
+            document.body.appendChild(target);
         }
         target.textContent = elem.textContent;
     }
@@ -54,19 +66,19 @@ function copyToClipboard(elem) {
     var currentFocus = document.activeElement;
     target.focus();
     target.setSelectionRange(0, target.value.length);
-    
+
     // copy the selection
     var succeed;
     try {
-    	succeed = document.execCommand("copy");
-    } catch(e) {
-    	succeed = false;
+        succeed = document.execCommand("copy");
+    } catch (e) {
+        succeed = false;
     }
     // restore original focus
     if (currentFocus && typeof currentFocus.focus === "function") {
-    	currentFocus.focus();
+        currentFocus.focus();
     }
-    
+
     if (isInput) {
         // restore prior selection
         elem.setSelectionRange(origSelectionStart, origSelectionEnd);
@@ -77,12 +89,12 @@ function copyToClipboard(elem) {
     return succeed;
 }
 
-function sendEmail(){
-    window.location.href="mailto:?body=" + getCryptMsg();
+function sendEmail() {
+    window.location.href = "mailto:?body=" + getCryptMsg();
 }
 
 function sendWhatsApp() {
-    window.location.href="whatsapp://send?text=" + getCryptMsg();
+    window.location.href = "whatsapp://send?text=" + getCryptMsg();
 }
 
 
@@ -90,40 +102,40 @@ function sendWhatsApp() {
 
 // String hashing: thanks SO
 String.prototype.hashCode = function() {
-	var hash = 0, i, chr, len;
-	if (this.length === 0) return hash;
-	for (i = 0, len = this.length; i < len; i++) {
-		chr   = this.charCodeAt(i);
-		hash  = ((hash << 5) - hash) + chr;
-    	hash |= 0; // Convert to 32bit integer
+    var hash = 0,
+        i, chr, len;
+    if (this.length === 0) return hash;
+    for (i = 0, len = this.length; i < len; i++) {
+        chr = this.charCodeAt(i);
+        hash = ((hash << 5) - hash) + chr;
+        hash |= 0; // Convert to 32bit integer
     }
     return hash;
 };
 
 function getMagicNumber(usn, pwd) {
-	var theMagicNumber = usn.hashCode() + pwd.hashCode();
-	return Math.abs(theMagicNumber) % 9991;
+    var theMagicNumber = usn.hashCode() + pwd.hashCode();
+    return Math.abs(theMagicNumber) % 9991;
 }
 
 //regex magic to get rid of double spaces
 function noDoubleSpace(msg) {
-	return msg.replace(/\s\s+/g, ' ');
+    return msg.replace(/\s\s+/g, ' ');
 }
 
 // it gets rid of those phantom chars at the end
 function decodeLength(msg) {
-	var splitPoint = msg.indexOf('-');
-	var l = parseInt(msg.substring(0, splitPoint));
+    var splitPoint = msg.indexOf('-');
+    var l = parseInt(msg.substring(0, splitPoint));
 
-	return msg.substring(splitPoint+1, splitPoint+1+l);
+    return msg.substring(splitPoint + 1, splitPoint + 1 + l);
 }
 
 //reversees an object: used for maps
 function reverse(map) {
-	var ret = {};
-	for(var key in map){
-		ret[map[key]] = key;
-	}
-	return ret;
+    var ret = {};
+    for (var key in map) {
+        ret[map[key]] = key;
+    }
+    return ret;
 };
-
