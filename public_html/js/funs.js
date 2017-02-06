@@ -17,12 +17,8 @@ function setLanguage(lang) {
         $('textarea[id=cryptText]').attr('placeholder', 'The crypted message goes here...');
         $('input[id=usn]').attr('placeholder', 'User Code');
 
-        FieldChecker.prototype.lang = 'en';
-        // popup text
-        MsgChecker.prototype.popUpVoid = 'Your message is empty!\nNothing will be done...';
-        MsgChecker.prototype.popUpIllegal = 'Your message contains illegal characters.\nOnly plain letters, numbers and basic puntuation are permitted.';
-
-
+        //for the popups
+        Checker.prototype.lang = 'en';
     }
     if (lang == 'it') {
         $('form[class=expiration_form]').attr('title', 'N.B.:  0 ore significa che il messaggio non si autodistruggerà mai');
@@ -31,10 +27,8 @@ function setLanguage(lang) {
         $('textarea[id=cryptText]').attr('placeholder', 'Incolla qui il messaggio cifrato...');
         $('input[id=usn]').attr('placeholder', 'Codice Utente');
 
-        FieldChecker.prototype.lang = 'it';
-        // popup text
-        MsgChecker.prototype.popUpVoid = 'Il tuo messaggio è vuoto!\nNon cripto proprio niente...';
-        MsgChecker.prototype.popUpIllegal = 'Il tuo messaggio contiene caratteri non permessi.\nUsa solo lettere senza accenti, numeri e punteggiatura di base.';
+        //for the popups
+        Checker.prototype.lang = 'it';
     }
 };
 

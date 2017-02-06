@@ -40,52 +40,71 @@ class ToMap {
 
 
 /*CHECKER*/
-//here there can be ineritance?
 
-class MsgChecker {
+class Checker {
 
 	constructor(msg, chars) {
 		this._msg = msg;
 		this._chars = chars;
 	}
 
-	//popups text will be defined in language selection
+	//popups text will be defined in subclasses
 	check() {
 		if (!this._msg) {
-			alert(this.popUpVoid);
-			return false;
-		}
-		if (!this._chars.test(this._msg)) {
-			alert(this.popUpIllegal);
-			return false;
-		}
-		return true;
-	}
-}
-
-class FieldChecker {
-
-	constructor(fieldName, fieldValue) {
-		this._fieldName = fieldName;
-		this._fieldValue = fieldValue;
-		this._minLength = 7;
-
-		this.popUpVoidEN = 'The field \'' + fieldName + '\' is empty!\n';
-		this.popUpShortEN = 'Your ' + fieldName + ' is too short!\nChoose one with at least ' + this.minLength + ' characters.';
-
-		this.popUpVoidIT = 'Il campo \'' + fieldName + '\' è vuoto!\n';
-		this.popUpShortIT = 'Il campo \'' + fieldName + '\' è composto da troppi pochi caratteri!\nDevono essere almeno ' + this._minLength + ' per poter cifrare un messaggio.';
-	}
-
-	//popups text will be defined in language selection
-	check() {
-		if (!this._fieldValue) {
 			if (this.lang == 'en')
 				alert(this.popUpVoidEN);
 			if (this.lang == 'it')
 				alert(this.popUpVoidIT);
 			return false;
 		}
+		if (!this._chars.test(this._msg)) {
+			if (this.lang == 'en')
+				alert(this.popUpIllegalEN);
+			if (this.lang == 'it')
+				alert(this.popUpIllegalIT);
+			return false;
+		}
+		return true;
+	}
+
+}
+
+class MsgChecker extends Checker {
+
+	constructor(msg, chars) {
+		super(msg, chars);
+
+		this.popUpVoidEN = 'Your message is empty!\n \nNothing will be done...\n ';
+		this.popUpIllegalEN = 'Your message contains illegal characters.\n \nOnly plain letters, numbers and basic puntuation are permitted.\n ';
+
+		this.popUpVoidIT = 'Il tuo messaggio è vuoto!\n \nNon cripto proprio niente...\n ';
+		this.popUpIllegalIT = 'Il tuo messaggio contiene caratteri non permessi.\n \nUsa solo lettere senza accenti, numeri e punteggiatura di base.\n ';
+	}
+}
+
+class FieldChecker extends Checker {
+
+	constructor(fieldName, fieldValue) {
+		super(fieldValue, /^[a-zA-Z0-9'?!,.:;\n ]*$/);
+
+		this._fieldName = fieldName;
+		this._fieldValue = fieldValue;
+		this._minLength = 7;
+
+		this.popUpVoidEN = 'The field \'' + fieldName + '\' is empty!\n ';
+		this.popUpIllegalEN = 'Your ' + fieldName + ' contains illegal characters.\n \nOnly plain letters, numbers and basic puntuation are permitted.\n ';
+		this.popUpShortEN = 'Your ' + fieldName + ' is too short!\n \nChoose one with at least ' + this._minLength + ' characters.\n ';
+
+		this.popUpVoidIT = 'Il campo \'' + fieldName + '\' è vuoto!\n ';
+		this.popUpIllegalIT = 'Il campo\'' + fieldName + '\' messaggio contiene caratteri non permessi.\n \nUsa solo lettere senza accenti, numeri e punteggiatura di base.\n ';
+		this.popUpShortIT = 'Il campo \'' + fieldName + '\' è composto da troppi pochi caratteri!\n \nDevono essere almeno ' + this._minLength + ' per poter cifrare un messaggio.\n ';
+	}
+
+	check() {
+		var preResult = super.check();
+		if (!preResult)
+			return preResult;
+
 		if (this._fieldValue.length < this._minLength) {
 			if (this.lang == 'en')
 				alert(this.popUpShortEN);
@@ -93,33 +112,10 @@ class FieldChecker {
 				alert(this.popUpShortIT);
 			return false;
 		}
+
 		return true;
 	}
 }
-
-
-
-
-/*= function(fieldName, fieldValue) {
-
-	var popUpVoid = 'The field \'' + fieldName + '\' is empty!\n';
-	var popUpShort = 'Your ' + fieldName + ' is too short!\nChoose one with at least ' + this.minLength + ' characters.';
-
-	this.minLength = 7;
-
-	this.check = function() {
-		if (!fieldValue) {
-			alert(popUpVoid);
-			return false;
-		}
-		if (fieldValue.length < this.minLength) {
-			alert(popUpShort);
-			return false;
-		}
-		return true;
-	}
-}*/
-
 
 /*EXPIRATION*/
 
