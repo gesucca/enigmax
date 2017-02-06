@@ -119,14 +119,20 @@ class FieldChecker extends Checker {
 
 /*EXPIRATION*/
 
-var Expirator = function(time, msg) {
+// this could be a function, but I already coded it so...
+class Expirator {
 
-	var now = new Date().getTime();
+	constructor(time, msg) {
+		this._time = time;
+		this._msg = msg;
+		this._now = new Date().getTime();
+	}
 
-	this.getExpMsg = function() {
-		return (';' + time + ';' + now + ';' + msg);
+	getExpMsg() {
+		return (';' + this._time + ';' + this._now + ';' + this._msg);
 	}
 }
+
 
 var ExpChecker = function(msg) {
 
