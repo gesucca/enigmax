@@ -1,152 +1,169 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-	<title>EnigMaX 1.3 - SS!dev</title>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<style>
-		@import url(enigMax.css);
-	</style>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-	<script src="js/main.js"></script>
-	<script src="js/input-output.js"></script>
-	<script src="js/objs.js"></script>
-	<script src="js/funs.js"></script>
+    <title>EnigMaX 1.3 - SS!dev</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+    @import url(enigMax.css);
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/front.js"></script>
+    <script src="js/core.js"></script>
 </head>
+
 <body>
-	<!-- JavaScript needed! -->
-	<noscript>
-		<style type="text/css">
-			.text {display:none;}
-			.content {display:none;}
-			.lang-button {display:none;}
-		</style>
-		<div id="nojs-msg">
-			<br>
-			You don't have JavaScript enabled in your browser, and this is a JavaScript app. <a href="http://enable-javascript.com/en/">Good luck with that.</a>
-			<br><br>
-			Non hai abilitato JavaScript nel tuo browser, e questa app ne ha bisogno. <a href="http://enable-javascript.com/en/">Abilitalo!</a>
-		</div>
-	</noscript>
-	<div style="float: right">
-		<button class="lang-button" id="lang-ita" onclick="setLanguage('it')">
-			<img src="img/ita.jpg" alt="ita-lang" height="25" width="35">
-		</button>
-		<br><br>
-		<button class="lang-button" onclick="setLanguage('en')">
-			<img src="img/eng.jpg" alt="eng-lang" height="25" width="35">
-		</button>
-	</div>
-	<div class="text">
-		<div class="text_bkg"></div>
-		<div id="text_txt">EnigMaX 1.3</div>
-	</div>
-	<br>
-	<div class="text">
-		<div class="text_bkg"></div>
-		<br>
-		<div class="ltext" lang="en" id="intestation_txt">
-			EnigMaX is a full client-side, <i title="Ok, ok, there is a bit of JQuery...">vanilla JavaScript</i> app. Oh, and it's about ciphering messages!
-		</div>
-		<div class="ltext" lang="it" id="intestation_txt">
-			EnigMaX è un'app totalmente lato client, sviluppata in <i title="Ok, ok, c'è un po' di JQuery...">JavaScript puro</i>. Ah, e serve per cifrare messaggi!
-		</div>
-		<br>
-	</div>
-	<div class="text">
-		<div class="text_bkg"></div>
-		<br>
-		<div class="ltext" lang="en" id="intestation_txt">
-			Using it is dead simple: choose an <i>User Code</i> and a <i>Password</i>, type the message and crypt it. Then you can safely transmit it to whoever knows your <i>User Code</i> and your <i>Password</i>, without worrying for it to be intercepted and read. You can also set a lifespan for your ciphered message: after it is over, EnigMaX will not decrypt it anymore!
-		</div>
-		<div class="ltext" lang="it" id="intestation_txt">
-			Usarla è semplice: scegli un <i>Codice Utente</i> ed una <i>Password</i>, digita il messaggio e criptalo. Potrai poi trasmetterlo a chiunque sappia il tuo <i>Codice Utente</i> e la tua <i>Password</i>, senza preoccuparti che venga intercettato e letto. Puoi anche impostare una scadenza per il tuo messaggio cifrato: passata quella, EnigMaX non lo decifrerà più!
-		</div>
-		<br>
-	</div>
-	<div class="text">
-		<div class="text_bkg"></div>
-		<br>
-		<div class="ltext" lang="en" id="intestation_txt">
-			Neat, uh? UH?
-		</div>
-		<div class="ltext" lang="it" id="intestation_txt">
-			Figo eh? Vero? VERO?
-		</div>
-		<br>
-	</div>
-	<div class="content">
-		<div class="usn_pwd_date" style="display: table; margin: 0 auto;">
-			<form style="float: left">
-				<!-- placeholder set on lang management with jquery -->
-				<input type="text" id="usn"><br>
-				<br>
-				<input type="password" id="pwd" placeholder="Password">
-			</form>
-			<form class="expiration_form">
-				<div class="ltext" lang="en">&nbsp;Self-desctructs in...&nbsp;</div>
-				<div class="ltext" lang="it">&nbsp;Il messaggio si autodistruggerà fra...&nbsp;</div>
-				<input type="number" id="expiration" min="0" max="48" value="0" style="text-align: center"><br>
-				<div class="ltext" lang="en">...hours!</div>
-				<div class="ltext" lang="it">...ore!</div>
-			</form> 
-		</div>
-		<br>
-		<div style="float: left">
-			<textarea id="clearText" rows="10" cols="30"></textarea>
-		</div>
-		<div style="float: right">
-			<textarea id="cryptText" rows="10" cols="30"></textarea>
-		</div>>
-		<div style="display: table; margin: 0 auto;">
-			<br>
-			<div>
-				<button onclick="cryptButton()">
-					<img src="img/arrow_dx.png" alt="Crypt" height="35" width="50">
-					<br>
-					<div class="ltext" lang="en">Crypt!</div>
-					<div class="ltext" lang="it">Cifra!</div>
-				</button>
-			</div>
-			<div>
-				<button onclick="decryptButton()">
-					<img src="img/arrow_sx.png" alt="Decrypt"  height="35" width="50">
-					<br>
-					<div class="ltext" lang="en">Derypt!</div>
-					<div class="ltext" lang="it">Decifra!</div>
-				</button>
-			</div>
-			<br>
-		</div>
-		<div style="display: table; margin: 0 auto;">
-			<button class="send" id="copy" onclick="copyToClipboard(document.getElementById('cryptText'));">
-				<img src="img/copypaste.png"></img>
-			</button>
-			<button class="send" id="mail" onclick="sendEmail();">
-				<img src="img/email.jpg"></img>
-			</button>
-			<button class="send" id="whatsapp" onclick="sendWhatsApp();">
-				<img src="img/wa.png"></img>
-			</button>
-		</div>
-		<br>
-	</div>
-	<br>
-	<div class="text">
-		<div class="text_bkg"></div>
-		<div class="ltext" lang='en' id="pedice_txt"><br>
-			EnigMaX is only a toy. Use it to have fun, NOT to crypt really important stuff. Just sayin'...
-			<br>
-			Developed by Simone Cipriani, all rights reserved.<br><br>
-		</div>
-		<div class="ltext" lang='it' id="pedice_txt"><br>
-			EnigMaX è solo un giocattolo. Usalo per baloccarti, NON per criptare dati veramente importanti. Giusto per dirtelo...
-			<br>
-			Sviluppato da Simone Cipriani, tutti i diritti riservati.<br><br>
-		</div> 
-	</div>
-	<br><br>
+    <!-- JavaScript needed! -->
+    <noscript>
+        <style type="text/css">
+        .text {
+            display: none;
+        }
+        
+        .content {
+            display: none;
+        }
+        
+        .lang-button {
+            display: none;
+        }
+        </style>
+        <div id="nojs-msg">
+            <br> You don't have JavaScript enabled in your browser, and this is a JavaScript app. <a href="http://enable-javascript.com/en/">Good luck with that.</a>
+            <br>
+            <br> Non hai abilitato JavaScript nel tuo browser, e questa app ne ha bisogno. <a href="http://enable-javascript.com/en/">Abilitalo!</a>
+        </div>
+    </noscript>
+    <div style="float: right">
+        <button class="lang-button" id="lang-ita" onclick="setLanguage('it')">
+            <img src="img/ita.jpg" alt="ita-lang" height="25" width="35">
+        </button>
+        <br>
+        <br>
+        <button class="lang-button" onclick="setLanguage('en')">
+            <img src="img/eng.jpg" alt="eng-lang" height="25" width="35">
+        </button>
+    </div>
+    <div class="text">
+        <div class="text_bkg"></div>
+        <div id="text_txt">EnigMaX 1.3</div>
+    </div>
+    <br>
+    <div class="text">
+        <div class="text_bkg"></div>
+        <br>
+        <div class="ltext" lang="en" id="intestation_txt">
+            EnigMaX is a full client-side, <i title="Ok, ok, there is a bit of JQuery...">vanilla JavaScript</i> app. Oh, and it's about ciphering messages!
+        </div>
+        <div class="ltext" lang="it" id="intestation_txt">
+            EnigMaX è un'app totalmente lato client, sviluppata in <i title="Ok, ok, c'è un po' di JQuery...">JavaScript puro</i>. Ah, e serve per cifrare messaggi!
+        </div>
+        <br>
+    </div>
+    <div class="text">
+        <div class="text_bkg"></div>
+        <br>
+        <div class="ltext" lang="en" id="intestation_txt">
+            Using it is dead simple: choose an <i>User Code</i> and a <i>Password</i>, type the message and crypt it. Then you can safely transmit it to whoever knows your <i>User Code</i> and your <i>Password</i>, without worrying for it to be intercepted and read. You can also set a lifespan for your ciphered message: after it is over, EnigMaX will not decrypt it anymore!
+        </div>
+        <div class="ltext" lang="it" id="intestation_txt">
+            Usarla è semplice: scegli un <i>Codice Utente</i> ed una <i>Password</i>, digita il messaggio e criptalo. Potrai poi trasmetterlo a chiunque sappia il tuo <i>Codice Utente</i> e la tua <i>Password</i>, senza preoccuparti che venga intercettato e letto. Puoi anche impostare una scadenza per il tuo messaggio cifrato: passata quella, EnigMaX non lo decifrerà più!
+        </div>
+        <br>
+    </div>
+    <div class="text">
+        <div class="text_bkg"></div>
+        <br>
+        <div class="ltext" lang="en" id="intestation_txt">
+            Neat, uh? UH?
+        </div>
+        <div class="ltext" lang="it" id="intestation_txt">
+            Figo eh? Vero? VERO?
+        </div>
+        <br>
+    </div>
+    <div class="content">
+        <div class="usn_pwd_date" style="display: table; margin: 0 auto;">
+            <form style="float: left">
+                <!-- placeholder set on lang management with jquery -->
+                <input type="text" id="usn">
+                <br>
+                <br>
+                <input type="password" id="pwd" placeholder="Password">
+            </form>
+            <form class="expiration_form">
+                <div class="ltext" lang="en">&nbsp;Self-desctructs in...&nbsp;</div>
+                <div class="ltext" lang="it">&nbsp;Il messaggio si autodistruggerà fra...&nbsp;</div>
+                <input type="number" id="expiration" min="0" max="48" value="0" style="text-align: center">
+                <br>
+                <div class="ltext" lang="en">...hours!</div>
+                <div class="ltext" lang="it">...ore!</div>
+            </form>
+        </div>
+        <br>
+        <div style="float: left">
+            <textarea id="clearText" rows="10" cols="30"></textarea>
+        </div>
+        <div style="float: right">
+            <textarea id="cryptText" rows="10" cols="30"></textarea>
+        </div>>
+        <div style="display: table; margin: 0 auto;">
+            <br>
+            <div>
+                <button onclick="cryptButton()">
+                    <img src="img/arrow_dx.png" alt="Crypt" height="35" width="50">
+                    <br>
+                    <div class="ltext" lang="en">Crypt!</div>
+                    <div class="ltext" lang="it">Cifra!</div>
+                </button>
+            </div>
+            <div>
+                <button onclick="decryptButton()">
+                    <img src="img/arrow_sx.png" alt="Decrypt" height="35" width="50">
+                    <br>
+                    <div class="ltext" lang="en">Derypt!</div>
+                    <div class="ltext" lang="it">Decifra!</div>
+                </button>
+            </div>
+            <br>
+        </div>
+        <div style="display: table; margin: 0 auto;">
+            <button class="send" id="copy" onclick="copyToClipboard(document.getElementById('cryptText'));">
+                <img src="img/copypaste.png"></img>
+            </button>
+            <button class="send" id="mail" onclick="sendEmail();">
+                <img src="img/email.jpg"></img>
+            </button>
+            <button class="send" id="whatsapp" onclick="sendWhatsApp();">
+                <img src="img/wa.png"></img>
+            </button>
+        </div>
+        <br>
+    </div>
+    <br>
+    <div class="text">
+        <div class="text_bkg"></div>
+        <div class="ltext" lang='en' id="pedice_txt">
+            <br> EnigMaX is only a toy. Use it to have fun, NOT to crypt really important stuff. Just sayin'...
+            <br> Developed by Simone Cipriani, all rights reserved.
+            <br>
+            <br>
+        </div>
+        <div class="ltext" lang='it' id="pedice_txt">
+            <br> EnigMaX è solo un giocattolo. Usalo per baloccarti, NON per criptare dati veramente importanti. Giusto per dirtelo...
+            <br> Sviluppato da Simone Cipriani, tutti i diritti riservati.
+            <br>
+            <br>
+        </div>
+    </div>
+    <br>
+    <br>
 </body>
 <!-- default language -->
-<script>setLanguage('en');</script>
+<script>
+setLanguage('en');
+</script>
+
 </html>
