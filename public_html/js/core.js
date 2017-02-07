@@ -117,13 +117,13 @@ var LastMap = {
 }
 
 class ToTen {
-
 	constructor(basicMap) {
 		this._basicMap = basicMap;
 		this._basic = Object.keys(basicMap).length;
 	}
 
 	convert(msg) {
+
 		var output = 0,
 			pos = null;
 		for (var i = 0; i < msg.length; i++) {
@@ -135,7 +135,6 @@ class ToTen {
 }
 
 class ToMap {
-
 	constructor(targetMap) {
 		this._tMap = targetMap;
 		this._target = Object.keys(targetMap).length;
@@ -154,76 +153,74 @@ class ToMap {
 	}
 }
 
-var Slicer = function(msg) {
+class Slicer {
+	constructor(msg) {
+		this._array = msg.split('');
+		this._i = 0;
+		this._finish = false;
+	}
 
-	var array = msg.split('');
-
-	var i = 0;
-	var finish = false;
-
-	this.getSlice = function() {
-
+	getSlice() {
 		var output = [];
 
-		if (i == array.length)
-			finish = true;
+		if (this._i == this._array.length)
+			this._finish = true;
 
-		if (finish)
+		if (this._finish)
 			return output;
 
-		// ok, I won't refactor this, let's document it:
 		// if 5 elements or more left, take everything
-		if (i + 5 <= array.length) {
-			output = [array[i + 0], array[i + 1], array[i + 2], array[i + 3], array[i + 4]];
-			i += 5;
+		if (this._i + 5 <= this._array.length) {
+			for (var j = 0; j < 5; j++)
+				output.push(this._array[this._i + j]);
+			this._i += 5;
 		}
 		// if less than 5 elements has yet to be considered...
-		else if ((array.length - i) < 5) {
+		else if ((this._array.length - this._i) < 5) {
 			// take everything left
-			for (; i < array.length; i++) {
-				output.push(array[i]);
+			for (; this._i < this._array.length; this._i++) {
+				output.push(this._array[this._i]);
 			}
 			//then fill up to five
-			for (k = output.length; k < 5; k++) {
+			for (var k = output.length; k < 5; k++) {
 				output.push(' ');
 			}
 		}
-
 		return output;
 	}
 
-	this.isEnd = function() {
-		return finish;
+	isEnd() {
+		return this._finish;
 	}
 }
 
-
-var Builder = function() {
-
-	var built = '';
-
-	this.get = function() {
-		return built;
+class Builder {
+	constructor() {
+		this._built = '';
 	}
 
-	this.append = function(slice) {
+	get() {
+		return this._built;
+	}
+
+	append(slice) {
 
 		if (slice.length > 5)
 		// nice, the only error thrown is the only one that keeps spawning in unit test from time to time
 			throw "ERROR BUILDER: Slice too long! " + slice;
 
 		if (slice.length < 5) {
-			for (i = slice.length; i < 5; i++) {
+			// fills up to five
+			for (var i = slice.length; i < 5; i++) {
 				slice.push(' ');
 			}
 		}
 
-		built += slice.join('');
+		this._built += slice.join('');
 	}
 }
 
 class Expirator {
-
 	constructor(time, msg) {
 		this._time = time;
 		this._msg = msg;
@@ -235,63 +232,60 @@ class Expirator {
 	}
 }
 
-var ExpChecker = function(msg) {
-
-	var dirtyMsg = msg;
-
-	function needsExpCheck() {
-		if (dirtyMsg.indexOf(';') == 0)
-			return true;
-		else
-			return false;
+class ExpChecker {
+	constructor(msg) {
+		this._dirtyMsg = msg;
+		this._expAlertEN = 'THE MESSAGE BLEW UP!\n \nIT CANNOT BE DECIPHERED ANYMORE!';
+		this._expAlertIT = 'IL TUO MESSAGGIO E\' ESPLOSO\n \nNON PUO\' PIU\' ESSERE DECIFRATO!';
 	}
 
-	function isExpired() {
+	getMsgExpChecked() {
 
-		var checkMsg = dirtyMsg;
+		function isExpired(checkMsg) {
 
-		function getLimit() {
-			checkMsg = checkMsg.substring(checkMsg.indexOf(';') + 1, checkMsg.length);
-			return checkMsg.substring(0, checkMsg.indexOf(';')) * 3600000;
+			function getLimit() {
+				checkMsg = checkMsg.substring(checkMsg.indexOf(';') + 1, checkMsg.length);
+				return checkMsg.substring(0, checkMsg.indexOf(';')) * 3600000;
+			}
+
+			var hourLimitMs = getLimit();
+
+			function getOriginTime() {
+				checkMsg = checkMsg.substring(checkMsg.indexOf(';') + 1, checkMsg.length);
+				return parseInt(checkMsg.substring(0, checkMsg.indexOf(';')));
+			}
+
+			var origTime = getOriginTime();
+
+			var now = new Date().getTime();
+			return (now - origTime > hourLimitMs);
 		}
 
-		function getOriginTime() {
-			checkMsg = checkMsg.substring(checkMsg.indexOf(';') + 1, checkMsg.length);
-			return parseInt(checkMsg.substring(0, checkMsg.indexOf(';')));
-		}
-
-		var hourLimitMs = getLimit();
-		var origTime = getOriginTime();
-
-		var now = new Date().getTime();
-
-		if (now - origTime > hourLimitMs)
-			return true;
-		else
-			return false;
-	}
-
-	function clean(dirtyMsg) {
-		// cut away everyting before the third ;
-		for (i = 0; i < 3; i++)
-			dirtyMsg = dirtyMsg.substring(dirtyMsg.indexOf(';') + 1, dirtyMsg.length);
-
-		return dirtyMsg;
-	}
-
-	this.getMsgExpChecked = function() {
-
-		var expAlert = 'THE MESSAGE BLEW UP!\n \nIT CANNOT BE DECIPHERED ANYMORE!';
-
-		if (!needsExpCheck())
+		function clean(dirtyMsg) {
+			// cut away everyting before the third ;
+			for (var i = 0; i < 3; i++)
+				dirtyMsg = dirtyMsg.substring(dirtyMsg.indexOf(';') + 1, dirtyMsg.length);
 			return dirtyMsg;
-
-		if (isExpired()) {
-			alert(expAlert);
-			return '54-' + expAlert;
 		}
 
-		return clean(dirtyMsg);
+		//needs expiration check?
+		if (!this._dirtyMsg.indexOf(';') == 0)
+			return this._dirtyMsg;
+
+		if (isExpired(this._dirtyMsg)) {
+			if (!this.lang)
+				throw 'ERROR: ExpChecker lang should be set!';
+
+			if (this.lang == 'en') {
+				alert(this._expAlertEN);
+				return '54-' + this._expAlertEN;
+			}
+			if (this.lang == 'it') {
+				alert(this._expAlertIT);
+				return '63-' + this._expAlertIT;
+			}
+		}
+		return clean(this._dirtyMsg);
 	}
 }
 

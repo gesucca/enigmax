@@ -2,6 +2,7 @@
 QUnit.module("Input Checks", {
     before: function() {
     window.alert = function () {}; //override alert to avoid displaying popup
+    Checker.prototype.lang = 'en';
 }
 });
 

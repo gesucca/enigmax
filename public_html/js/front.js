@@ -1,7 +1,6 @@
-/*OBJECTS DEFINITIOPNS*/
+/*OBJECTS DEFINITIONS*/
 
 class Checker {
-
     constructor(msg, chars) {
         this._msg = msg;
         this._chars = chars;
@@ -10,6 +9,8 @@ class Checker {
     //popups text will be defined in subclasses
     check() {
         if (!this._msg) {
+            if (!this.lang)
+                throw 'ERROR: Checker lang should be set!';
             if (this.lang == 'en')
                 alert(this.popUpVoidEN);
             if (this.lang == 'it')
@@ -25,11 +26,9 @@ class Checker {
         }
         return true;
     }
-
 }
 
 class MsgChecker extends Checker {
-
     constructor(msg, chars) {
         super(msg, chars);
 
@@ -42,7 +41,6 @@ class MsgChecker extends Checker {
 }
 
 class FieldChecker extends Checker {
-
     constructor(fieldName, fieldValue) {
         super(fieldValue, /^[a-zA-Z0-9'?!,.:;\n ]*$/);
 
@@ -84,7 +82,7 @@ function setLanguage(lang) {
     if (!known[lang])
         lang = 'en';
 
-    //switch all divs class ltext 
+    //switch all divs class ltext
     $('div.ltext[lang=' + lang + ']').show();
     $('div.ltext[lang!=' + lang + ']').hide();
 
@@ -98,6 +96,7 @@ function setLanguage(lang) {
 
         //for the popups
         Checker.prototype.lang = 'en';
+        ExpChecker.prototype.lang = 'en';
     }
     if (lang == 'it') {
         $('form[class=expiration_form]').attr('title', 'N.B.:  0 ore significa che il messaggio non si autodistruggerà mai');
@@ -108,6 +107,7 @@ function setLanguage(lang) {
 
         //for the popups
         Checker.prototype.lang = 'it';
+        ExpChecker.prototype.lang = 'it';
     }
 };
 
