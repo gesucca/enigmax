@@ -319,6 +319,39 @@ function getMagicNumber(usn, pwd) {
 	return Math.abs(theMagicNumber) % 9991;
 }
 
+// add random characters into the message
+function obfuscate(msg) {
+
+	function rndChar() {
+		var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!?";
+		return possible.charAt(Math.floor(Math.random() * possible.length));
+	}
+
+	var output = '';
+
+	for (i = 0; i < msg.length; i++) {
+		output += msg.charAt(i);
+		if ((msg.charCodeAt(i) % 3) == 0)
+			output += rndChar();
+	}
+
+	return output;
+}
+
+// clarificate obfuscated msg
+function clarificate(msg) {
+
+	var output = '';
+
+	for (i = 0; i < msg.length; i++) {
+		output += msg.charAt(i);
+		if ((msg.charCodeAt(i) % 3) == 0)
+			i++;
+	}
+
+	return output;
+}
+
 //regex magic to get rid of double spaces
 function noDoubleSpace(msg) {
 	return msg.replace(/\s\s+/g, ' ');
