@@ -178,6 +178,8 @@ function sendWa() {
 function clearAll() {
     $('#clearText').val('');
     $('#cryptText').val('');
+    $('#usn').val('');
+    $('#pwd').val('');
     $('#expiration').val('0');
 }
 
