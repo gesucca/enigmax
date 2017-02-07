@@ -4,6 +4,7 @@ QUnit.module("Expiration");
 QUnit.test("Checker 1", function (assert) {
 
 	window.alert = function () {}; //override alert to avoid displaying popup
+	ExpChecker.prototype.lang = 'en';
 
 	var msg = ';12;'+ new Date().getTime() + ';messaggio';
 	var after = new ExpChecker(msg).getMsgExpChecked();
@@ -14,6 +15,7 @@ QUnit.test("Checker 1", function (assert) {
 QUnit.test("Checker 2", function (assert) {
 
 	window.alert = function () {}; //override alert to avoid displaying popup
+	ExpChecker.prototype.lang = 'en';
 
 	var msg = ';1;'+ 1485021466275 + ';messaggio';
 	var after = new ExpChecker(msg).getMsgExpChecked();

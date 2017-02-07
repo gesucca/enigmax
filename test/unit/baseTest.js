@@ -33,17 +33,17 @@ QUnit.test("Full test 1", function (assert) {
 	// convert
 	var start = ['?','B','A','!',' '];
 
-	var c = new ToTen(new FirstMap().get());
+	var c = new ToTen(FirstMap);
 	var temp = c.convert(start);
 
-	c = new ToMap(new LastMap().get());
+	c = new ToMap(LastMap);
 	temp = c.convert(temp);
 
 	//reverse
-	c = new ToTen(new LastMap().getReverse());
+	c = new ToTen(reverse(LastMap));
 	temp = c.convert(temp);
 
-	c = new ToMap(new FirstMap().getReverse());
+	c = new ToMap(reverse(FirstMap));
 	temp = c.convert(temp);
 
 	assert.deepEqual(temp, start, "incredible!");
@@ -55,18 +55,18 @@ QUnit.test("Full test 2", function (assert) {
 	// convert
 	var start = ['G',':',';',';','.'];
 
-	var c = new ToTen(new FirstMap().get());
+	var c = new ToTen(FirstMap);
 	var temp = c.convert(start);
 
-	c = new ToMap(new LastMap().get());
+	c = new ToMap(LastMap);
 	temp = c.convert(temp);
 
 	//reverse
-	c = new ToTen(new LastMap().getReverse());
+	c = new ToTen(reverse(LastMap));
 	temp = c.convert(temp);
 
-	c = new ToMap(new FirstMap().getReverse());
+	c = new ToMap(reverse(FirstMap));
 	temp = c.convert(temp);
-
+	
 	assert.deepEqual(temp, start, "incredible!");
 });
