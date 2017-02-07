@@ -162,12 +162,23 @@ function copyToClipboard(elem) {
     return succeed;
 }
 
-function sendEmail() {
+function sendMail() {
     window.location.href = "mailto:?body=" + getCryptMsg();
 }
 
-function sendWhatsApp() {
+function sendSMS() {
+    window.location.href = "sms:?&body=" + getCryptMsg();
+}
+
+function sendWa() {
     window.location.href = "whatsapp://send?text=" + getCryptMsg();
+}
+
+// erase content of all user input fields
+function clearAll() {
+    $('#clearText').val('');
+    $('#cryptText').val('');
+    $('#expiration').val('0');
 }
 
 function cryptButton() {

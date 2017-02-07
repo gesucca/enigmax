@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>EnigMaX 1.3 - SS!dev</title>
+    <title>EnigMaX 1.4 - SS!dev</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
@@ -36,6 +36,7 @@
             <br> Non hai abilitato JavaScript nel tuo browser, e questa app ne ha bisogno. <a href="http://enable-javascript.com/en/">Abilitalo!</a>
         </div>
     </noscript>
+    <!-- Language buttons -->
     <div style="float: right">
         <button class="lang-button" id="lang-ita" onclick="setLanguage('it')">
             <img src="img/ita.jpg" alt="ita-lang" height="25" width="35">
@@ -46,9 +47,10 @@
             <img src="img/eng.jpg" alt="eng-lang" height="25" width="35">
         </button>
     </div>
+    <!-- text content -->
     <div class="text">
         <div class="text_bkg"></div>
-        <div id="text_txt">EnigMaX 1.3</div>
+        <div id="text_txt">EnigMaX 1.4</div>
     </div>
     <br>
     <div class="text">
@@ -84,7 +86,8 @@
         </div>
         <br>
     </div>
-    <div class="content">
+    <!-- main panel -->
+    <div class="content" id="main">
         <div class="usn_pwd_date" style="display: table; margin: 0 auto;">
             <form style="float: left">
                 <!-- placeholder set on lang management with jquery -->
@@ -109,40 +112,41 @@
         <div style="float: right">
             <textarea id="cryptText" rows="10" cols="30"></textarea>
         </div>>
-        <div style="display: table; margin: 0 auto;">
+        <div style="display: table; margin: -25px auto;">
             <br>
             <div>
-                <button onclick="cryptButton()">
+                <button class="mainb" onclick="cryptButton()">
                     <img src="img/arrow_dx.png" alt="Crypt" height="35" width="50">
                     <br>
-                    <div class="ltext" lang="en">Crypt!</div>
-                    <div class="ltext" lang="it">Cifra!</div>
-                </button>
-            </div>
-            <div>
-                <button onclick="decryptButton()">
-                    <img src="img/arrow_sx.png" alt="Decrypt" height="35" width="50">
-                    <br>
-                    <div class="ltext" lang="en">Derypt!</div>
-                    <div class="ltext" lang="it">Decifra!</div>
+                    <div class="ltext" lang="en"><b style="color: black">Crypt!</b></div>
+                    <div class="ltext" lang="it"><b style="color: black">Cifra!</b></div>
                 </button>
             </div>
             <br>
+            <div>
+                <button class="mainb" onclick="decryptButton()">
+                    <img src="img/arrow_sx.png" alt="Decrypt" height="35" width="50">
+                    <br>
+                    <div class="ltext" lang="en"><b style="color: black">Decrypt!</b></div>
+                    <div class="ltext" lang="it"><b style="color: black">Decifra!</b></div>
+                </button>
+            </div>
         </div>
-        <div style="display: table; margin: 0 auto;">
-            <button class="send" id="copy" onclick="copyToClipboard(document.getElementById('cryptText'));">
-                <img src="img/copypaste.png"></img>
-            </button>
-            <button class="send" id="mail" onclick="sendEmail();">
-                <img src="img/email.jpg"></img>
-            </button>
-            <button class="send" id="whatsapp" onclick="sendWhatsApp();">
-                <img src="img/wa.png"></img>
-            </button>
+        <div style="display: table; margin: 45px auto;">
+            <button class="actionb" id="del" onclick="clearAll();"></button>
+            <button class="actionb" id="cp" onclick="copyToClipboard(document.getElementById('cryptText'));"></button>
+            <div class="dropdown">
+                <button class="actionb" id="snd" onclick="document.getElementById('myDropdown').classList.toggle('show')"></button>
+                <div id="myDropdown" class="dropdown-content" style="z-index=1">
+                    <a href="#main" onclick="sendMail()">Mail</a>
+                    <a href="#main" onclick="sendSMS()">SMS</a>
+                    <a href="#main" onclick="sendWa()">WhatsApp</a>
+                </div>
+            </div>
         </div>
-        <br>
     </div>
     <br>
+    <!-- pedice text -->
     <div class="text">
         <div class="text_bkg"></div>
         <div class="ltext" lang='en' id="pedice_txt">
@@ -161,7 +165,7 @@
     <br>
     <br>
 </body>
-<!-- default language -->
+<!-- set default language -->
 <script>
 setLanguage('en');
 </script>
