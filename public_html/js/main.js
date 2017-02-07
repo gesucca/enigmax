@@ -8,8 +8,8 @@ function crypt(msg, usn, pwd, exp) {
 	var s = new Slicer(msg);
 	var b = new Builder();
 
-	var c = new ToTen(new FirstMap().get());
-	var d = new ToMap(new LastMap().get());
+	var c = new ToTen(FirstMap);
+	var d = new ToMap(LastMap);
 
 	while (!s.isEnd()){
 		var temp = c.convert(s.getSlice()); //temp is an int!
@@ -29,8 +29,8 @@ function decrypt(msg, usn, pwd) {
 	var s = new Slicer(msg);
 	var b = new Builder();
 
-	var c = new ToTen(new LastMap().getReverse());
-	var d = new ToMap(new FirstMap().getReverse());
+	var c = new ToTen(reverse(LastMap));
+	var d = new ToMap(reverse(FirstMap));
 
 	while (!s.isEnd()){
 		var temp = c.convert(s.getSlice()); //temp is an int!
